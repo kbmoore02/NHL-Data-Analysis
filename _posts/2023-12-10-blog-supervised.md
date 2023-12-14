@@ -16,5 +16,5 @@ I created two knn models to predict favorite music genre -- one with all of the 
 
 Both models have the same accuracy of 0.27727
 
-<img src="https://raw.githubusercontent.com/kbmoore02/Stat486-Final-Blog/main/assets/images/knn_model1_roc.png" alt="" style="width:1000px;">
-<img src="https://raw.githubusercontent.com/kbmoore02/Stat486-Final-Blog/main/assets/images/knn_model2_roc.png" alt="" style="width:1000px;">
+<img src="https://raw.githubusercontent.com/kbmoore02/Stat486-Final-Blog/main/assets/images/knn_model1_roc.png" alt="" style="width:400px;">
+<img src="https://raw.githubusercontent.com/kbmoore02/Stat486-Final-Blog/main/assets/images/knn_model2_roc.png" alt="" style="width:400px;">
