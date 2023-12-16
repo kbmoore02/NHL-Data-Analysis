@@ -6,4 +6,22 @@ description: Apply unsupervised learning to student data
 image: /assets/images/unsup_header.png
 ---
 
-# New Research Questions
+# Introduction
+
+Now that we've determined that we can't predict music taste with much success, let's see what we *can* learn from this data. I'm going to apply some unsupervised learning models and see what information we can extract from this data.
+
+# Cluster Analysis
+
+I started by computing a few different metrics to see how many clusters I should look for.
+
+<p float="left">
+  <img src="https://raw.githubusercontent.com/kbmoore02/Stat486-Final-Blog/main/assets/images/cluster1.png" alt="" style="width:300px;">
+  <img src="https://raw.githubusercontent.com/kbmoore02/Stat486-Final-Blog/main/assets/images/cluster2.png" alt="" style="width:300px;">
+  <img src="https://raw.githubusercontent.com/kbmoore02/Stat486-Final-Blog/main/assets/images/cluster3.png" alt="" style="width:300px;">
+  <img src="https://raw.githubusercontent.com/kbmoore02/Stat486-Final-Blog/main/assets/images/cluster4.png" alt="" style="width:300px;">
+</p>
+
+Based on these, I decided that `n_clusters=4` is the best value. Using sklearn's `GaussianMixture()` algorithm, I found 4 clusters in the data. The following are representations of how the data fits into these clusters:
+
+<img src="https://raw.githubusercontent.com/kbmoore02/Stat486-Final-Blog/main/assets/images/all_clusters1.png" alt="" style="width:800px;">
+<img src="https://raw.githubusercontent.com/kbmoore02/Stat486-Final-Blog/main/assets/images/all_clusters2.png" alt="" style="width:800px;">
