@@ -12,9 +12,9 @@ My primary research goal is to see if I can predict a BYU student's favorite gen
 
 # K-Nearest Neighbors
 
-I created two knn models to predict favorite music genre -- one with all of the variables in the dataset [hereafter Model 1], and one with just the variables specified above [hereafter Model 2] -- using the sklearn `KNeighborsClassifier()` package. In order to determine the best values for the hyperparameters `n_neighbors` and `weights`, I used `GridSearchCV()`. For both models, the best hyperparameter values were `n_neighbors=2` (out of 1,2,3,4,5) and `weights='uniform'` (out of 'uniform' and 'distance').
+I created two knn models to predict favorite music genre -- one with all of the variables in the dataset [hereafter Model 1], and one with just the variables specified above [hereafter Model 2] -- using the sklearn `KNeighborsClassifier()` package. In order to determine the best values for the hyperparameters `n_neighbors` and `weights`, I used `GridSearchCV()`. For model 1, the best hyperparameter values were `n_neighbors=10` (out of 1,2,3,4,5,6,7,8,9,10) and `weights='distance'` (out of 'uniform' and 'distance'), and for model 2, the best values were `n_neighbors=10` and `weights='uniform'`.
 
-Both models have the same accuracy of 0.27727. The overall ROC AUC for Model 1 is 0.52061, while the ROC AUC for Model 2 is 0.51478, so Model 1 performs slightly better, but it's not really a significant difference. Here are the one-vs-rest ROC curves for each music genre:
+Model 1 has an accuracy of 0.33636, and model 2 has an accuracy of 0.3. The overall ROC AUC for model 1 is 0.58656, while the ROC AUC for model 2 is 0.59283, so model 2 performs slightly better, but this doesn't seem like a very significant difference. Here are the one-vs-rest ROC curves for each music genre:
 
 <p float="left">
   <img src="https://raw.githubusercontent.com/kbmoore02/Stat486-Final-Blog/main/assets/images/knn_model1_roc.png" alt="" style="width:400px;">
@@ -25,9 +25,9 @@ As we can see based on these graphs and metrics, these are not great models for 
 
 # Random Forest
 
-I created two random forest models to predict favorite music genre -- one with all of the variabels in the dataset [hereafter Model 3], and one with just the variables specified above [hereafter Model 4] -- using the sklearn `RandomForestClassifier()` package. I did not perform any hyperparameter tuning for these models.
+I created two random forest models to predict favorite music genre -- one with all of the variabels in the dataset [hereafter Model 3], and one with just the variables specified above [hereafter Model 4] -- using the sklearn `RandomForestClassifier()` package. In order to determine the best values for the hyperparameters `n_estimators` and `max_depth`, I used `GridSearchCV()`. For model 3, the best hyperparameter values were `n_estimators=300` (out of 100,200,300,400,500,600,700) and `max_depth=5` (out of None,5,10,15,20), and for model 2, the best values were `n_estimators=500` and `max_depth=5`.
 
-Both models have the same accuracy of 0.32273, which is slightly better than the KNN models. The overall ROC AUC for Model 3 is 0.58351, while the ROC AUC for Model 4 is 0.58976, so Model 4 performs slightly better, but again, it's not really a significant difference. Here are the one-vs-rest ROC curves for each music genre:
+Model 3 has an accuracy of 0.34545, while model 4 has an accuracy of 0.35909. The overall ROC AUC for model 3 is 0.66452, while the ROC AUC for model 4 is 0.64344. They are both better than either of the KNN models (models 1 and 2). Here are the one-vs-rest ROC curves for each music genre:
 
 <p float="left">
   <img src="https://raw.githubusercontent.com/kbmoore02/Stat486-Final-Blog/main/assets/images/knn_model3_roc.png" alt="" style="width:400px;">
@@ -42,13 +42,13 @@ The `RandomForestClassifer()` model allows us to look at feature importances.
 
 <img src="https://raw.githubusercontent.com/kbmoore02/Stat486-Final-Blog/main/assets/images/feature_importances.png" alt="" style="width:600px;">
 
-According to this, the top 7 most importance features for predicting a BYU student's favorite music genre are Salary, BYUFounded, College, YHowTall, YearInternet, HoursHomework, and Movie, only 2 of which are part of the 7 variables I selected for my original research question. I'm curious to see how a model with just these features performs.
+According to this, the top 7 most importance features for predicting a BYU student's favorite music genre are Sex, Salary, Movie, YearInternet, YHowTall, College, and Height, only 3 of which are part of the 7 variables I selected for my original research question. I'm curious to see how a model with just these features performs.
 
 ## Logistic Regression
 
-Using sklearn's `LogisticRegression()` function, I created a model to predict Music using Salary, BYUFounded, College, YHowTall, YearInternet, HoursHomework, and Movie, the features we selected above.
+Using sklearn's `LogisticRegression()` function, I created a model [hereafter Model 5] to predict Music using Sex, Salary, Movie, YearInternet, YHowTall, College, and Height, the features we selected above. In order to determine the best values for the hyperparameter `C`, I used `GridSearchCV()`, and the best value was `C=0.1`.
 
-The model's accuracy is 0.32727, while its ROC AUC is 0.52589. Here are the one-vs-rest ROC curves for each music genre: 
+The model's accuracy is 0.29545, while its ROC AUC is 0.64391. Here are the one-vs-rest ROC curves for each music genre: 
 
 <img src="https://raw.githubusercontent.com/kbmoore02/Stat486-Final-Blog/main/assets/images/knn_model5_roc.png" alt="" style="width:400px;">
 
