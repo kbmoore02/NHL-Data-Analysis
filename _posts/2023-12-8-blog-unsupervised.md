@@ -6,10 +6,6 @@ description: Apply unsupervised learning to student data
 image: /assets/images/unsup_header.png
 ---
 
-# Introduction
-
-Now that we've determined that we can't predict music taste with much success, let's see what we *can* learn from this data. I'm going to apply some unsupervised learning models and see what information we can extract from this data.
-
 # Cluster Analysis
 
 I started by computing a few different metrics to see how many clusters I should look for.
