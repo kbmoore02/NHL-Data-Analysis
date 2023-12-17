@@ -55,7 +55,7 @@ The clusters are much more defined for PCA than for tSNE. When looking at tSNE, 
 
 <p float="left">
   <img src="https://raw.githubusercontent.com/kbmoore02/Stat486-Final-Blog/main/assets/images/pca_sex1.png" alt="" style="width:400px;">
-  <img src="https://raw.githubusercontent.com/kbmoore02/Stat486-Final-Blog/main/assets/images/tsne_sex1.png" alt="" style="width:400px;">
+  <img src="https://raw.githubusercontent.com/kbmoore02/Stat486-Final-Blog/main/assets/images/tsne-sex1.png" alt="" style="width:400px;">
 </p>
 
 The separation between the two is very clear. So it seems, just as we discovered with our supervised learning, that gender is the most important factor in this dataset.  
