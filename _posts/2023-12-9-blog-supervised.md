@@ -63,3 +63,5 @@ The model's accuracy is 0.35909, while its ROC AUC is 0.6392.  Here is are the o
 <img src="https://raw.githubusercontent.com/kbmoore02/Stat486-Final-Blog/main/assets/images/knn_model6_roc.png" alt="" style="width:400px;">
 
 Unfortunately, we still can't make great predictions of a BYU student's favorite music genre. Since this seems to be a wash, let's look at what we *can* learn from the data with some unsupervised learning.
+
+<a href="https://kbmoore02.github.io/Stat486-Final-Blog/2023/12/08/blog-unsupervised.html">Here</a> is the next part of my analysis.
