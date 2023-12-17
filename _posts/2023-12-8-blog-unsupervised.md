@@ -45,3 +45,12 @@ Looking at these graphs, we see a couple of interesting patterns:
 - Most people who prefer YouTube are in cluster 3
 - Most people who prefer foreign films are in cluster 4
 - Most people who prefer Netflix are in cluster 1
+
+# Dimension Reduction
+
+Now I'm going to perform some dimension reduction so that we can get a look at these clusters all together. I did both sklearn's `PCA()` and `TSNE()` with 2 components, so it would be easy to visualize. Here are the results:
+
+<p float="left">
+  <img src="https://raw.githubusercontent.com/kbmoore02/Stat486-Final-Blog/main/assets/images/pca.png" alt="" style="width:300px;">
+  <img src="https://raw.githubusercontent.com/kbmoore02/Stat486-Final-Blog/main/assets/images/tsne.png" alt="" style="width:300px;">
+</p>
