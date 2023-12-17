@@ -58,10 +58,10 @@ This is about the same as the KNN and RF models, so we still can't make very goo
 
 Let's try one last model to see if we can improve our predictions. This will be an ensemble of all the model types we've tried so far (KNN, Random Forest, and Logistic Regression). We will use all variables in this model.
 
-The model's accuracy is 0.35909, while its ROC AUC is 0.6392.  Here is are the one-vs-rest ROC curves for each music genre:
+The model's accuracy is 0.40455, while its ROC AUC is 0.66184.  Here is are the one-vs-rest ROC curves for each music genre:
 
 <img src="https://raw.githubusercontent.com/kbmoore02/Stat486-Final-Blog/main/assets/images/knn_model6_roc.png" alt="" style="width:400px;">
 
-Unfortunately, we still can't make great predictions of a BYU student's favorite music genre. Since this seems to be a wash, let's look at what we *can* learn from the data with some unsupervised learning.
+This model performs better than any of the others, but unfortunately we still can't make good predictions of a BYU student's favorite music genre. Since this seems to be a wash, let's look at what we *can* learn from the data with some unsupervised learning.
 
 <a href="https://kbmoore02.github.io/Stat486-Final-Blog/2023/12/08/blog-unsupervised.html">Here</a> is the next part of my analysis.
