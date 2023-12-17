@@ -53,6 +53,9 @@ Now I'm going to perform some dimension reduction so that we can get a look at t
 
 The clusters are much more defined for PCA than for tSNE. When looking at tSNE, the most defined clusters are 3 and 4 which makes sense, because those are the largest clusters. Looking at the PCA clusters, 1 and 4 overlap a lot, while 2 and 3 are a bit more separate. This pattern is reflective of how most men are in clusters 1 and 4, and most women are in clusters 2 and 3, as we saw above in our cluster analysis. Let's look at these clusters based on gender:
 
-<img src="https://raw.githubusercontent.com/kbmoore02/Stat486-Final-Blog/main/assets/images/pca_sex1.png" alt="" style="width:400px;">
+<p float="left">
+  <img src="https://raw.githubusercontent.com/kbmoore02/Stat486-Final-Blog/main/assets/images/pca_sex1.png" alt="" style="width:400px;">
+  <img src="https://raw.githubusercontent.com/kbmoore02/Stat486-Final-Blog/main/assets/images/tsne_sex1.png" alt="" style="width:400px;">
+</p>
 
 The separation between the two is very clear. So it seems, just as we discovered with our supervised learning, that gender is the most important factor in this dataset.  
