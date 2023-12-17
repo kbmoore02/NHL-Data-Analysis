@@ -29,7 +29,7 @@ Based on these, I decided that `n_clusters=4` is the best value. Using sklearn's
 Looking at this graph, the only really noticeable trends are in height and shoe size, which I presume is due to typical differences between men and women. We know from our random forest model that sex is the most important factor in predicting music taste, so it makes sense that it would be a defining characteristic in separating the clusters.
 
 <img src="https://raw.githubusercontent.com/kbmoore02/Stat486-Final-Blog/main/assets/images/all_clusters2.png" alt="" style="width:1000px;">
-<img src="https://raw.githubusercontent.com/kbmoore02/Stat486-Final-Blog/main/assets/images/all_clusters3.png" alt="" style="width:1000px;">
+<img src="https://raw.githubusercontent.com/kbmoore02/Stat486-Final-Blog/main/assets/images/all_clusters3.png" alt="" style="width:800px;">
 
 Looking at these graphs, we see a couple of interesting patterns:
 - Most people in a relationship are in cluster 3
@@ -51,6 +51,10 @@ Looking at these graphs, we see a couple of interesting patterns:
 Now I'm going to perform some dimension reduction so that we can get a look at these clusters all together. I did both sklearn's `PCA()` and `TSNE()` with 2 components, so it would be easy to visualize. Here are the results:
 
 <p float="left">
-  <img src="https://raw.githubusercontent.com/kbmoore02/Stat486-Final-Blog/main/assets/images/pca.png" alt="" style="width:300px;">
-  <img src="https://raw.githubusercontent.com/kbmoore02/Stat486-Final-Blog/main/assets/images/tsne.png" alt="" style="width:300px;">
+  <img src="https://raw.githubusercontent.com/kbmoore02/Stat486-Final-Blog/main/assets/images/pca.png" alt="" style="width:500px;">
+  <img src="https://raw.githubusercontent.com/kbmoore02/Stat486-Final-Blog/main/assets/images/tsne.png" alt="" style="width:500px;">
 </p>
+
+The clusters are much more defined for PCA than for tSNE. When looking at tSNE, the most defined clusters are 3 and 4 which makes sense, because those are the largest clusters. Looking at the PCA clusters, 1 and 4 overlap a lot, while 2 and 3 are a bit more separate. This pattern is reflective of how most men are in clusters 1 and 4, and most women are in clusters 2 and 3, as we saw above in our cluster analysis. So, I created a new PCA model, this time leaving out gender. Here are the results:
+
+<img src="https://raw.githubusercontent.com/kbmoore02/Stat486-Final-Blog/main/assets/images/pca_sex1.png" alt="" style="width:500px;">
