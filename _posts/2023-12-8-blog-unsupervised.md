@@ -29,4 +29,19 @@ Based on these, I decided that `n_clusters=4` is the best value. Using sklearn's
 Looking at this graph, the only really noticeable trends are in height and shoe size, which I presume is due to typical differences between men and women. We know from our random forest model that sex is the most important factor in predicting music taste, so it makes sense that it would be a defining characteristic in separating the clusters.
 
 <img src="https://raw.githubusercontent.com/kbmoore02/Stat486-Final-Blog/main/assets/images/all_clusters2.png" alt="" style="width:1000px;">
+<img src="https://raw.githubusercontent.com/kbmoore02/Stat486-Final-Blog/main/assets/images/all_clusters3.png" alt="" style="width:1000px;">
 
+Looking at these graphs, we see a couple of interesting patterns:
+- Most people in a relationship are in cluster 3
+- Most people who use dating apps are in cluster 1
+- The people who spend the most on food each week are in clusters 3 and 4
+- Cluster 3 has the highest median height, shoe size, and salary
+- Most people who played sports in high school are in cluster 2
+- Most people in the college of education are in cluster 1
+- Most people in the nursing program and in the college of humanities are in cluster 4
+- All people with an Apple phone are in cluster 2
+- Most men are in clusters 1 and 4 and most women are in clusters 2 and 3
+- Most people who want to live in the western US are in cluster 1
+- Most people who prefer YouTube are in cluster 3
+- Most people who prefer foreign films are in cluster 4
+- Most people who prefer Netflix are in cluster 1
