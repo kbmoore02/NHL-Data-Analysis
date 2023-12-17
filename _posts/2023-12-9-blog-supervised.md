@@ -53,3 +53,13 @@ The model's accuracy is 0.29545, while its ROC AUC is 0.64391. Here are the one-
 <img src="https://raw.githubusercontent.com/kbmoore02/Stat486-Final-Blog/main/assets/images/knn_model5_roc.png" alt="" style="width:400px;">
 
 This is about the same as the KNN and RF models, so we still can't make very good predictions of a BYU student's favorite music genre.
+
+## Ensemble Model
+
+Let's try one last model to see if we can improve our predictions. This will be an ensemble of all the model types we've tried so far (KNN, Random Forest, and Logistic Regression). We will use all variables in this model.
+
+The model's accuracy is 0.35909, while its ROC AUC is 0.6392.  Here is are the one-vs-rest ROC curves for each music genre:
+
+<img src="https://raw.githubusercontent.com/kbmoore02/Stat486-Final-Blog/main/assets/images/knn_model6_roc.png" alt="" style="width:400px;">
+
+Unfortunately, we still can't make great predictions of a BYU student's favorite music genre. Since this seems to be a wash, let's look at what we *can* learn from the data with some unsupervised learning.
