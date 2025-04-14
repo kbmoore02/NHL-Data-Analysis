@@ -39,7 +39,7 @@ def export_dataframe_to_excel_sheet(df, excel_path, sheet_name):
         print(f"An error occurred: {e}")
 
 # Get Dates
-start_date = datetime(2025, 4, 11)
+start_date = datetime(2024, 10, 13)
 end_date = datetime(2025, 4, 13)
 
 date_list = [start_date + timedelta(days=x) for x in range((end_date - start_date).days + 1)]
