@@ -10,7 +10,7 @@ image: /assets/images/hockey1-header.png
 
 For this project, I am analyzing the 2024-25 Stanley Cup Playoffs picture over the course of the season. To do this, I gathered data from every day of the season and determined what the playoff layout would be if the tournament started that day.
 
-This is the website I used to gather the data: <a href="https://www.hockey-reference.com/boxscores/"></a>
+This is the website I used to gather the data: <a href="https://www.hockey-reference.com/boxscores/">https://www.hockey-reference.com/boxscores/</a>
 
 # Code
 
