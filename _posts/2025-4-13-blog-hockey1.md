@@ -87,6 +87,6 @@ for i in range(0, len(dates)):
     export_dataframe_to_excel_sheet(df, excel_file_path, new_sheet_name)
 ```
 
-I now have all daily standings saved to an Excel spreadsheet, each on their own page. Here's a sample:
+I now have all daily standings saved to an Excel spreadsheet, each on their own page. Here's an wxample:
 
 <img src="https://raw.githubusercontent.com/kbmoore02/Stat486-Final-Blog/main/assets/images/sample-standings-stacked.png" alt="" style="width:500px;">
