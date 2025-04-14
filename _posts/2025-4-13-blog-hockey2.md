@@ -243,7 +243,7 @@ video.release()
 # Repeat for western conference
 ```
 
-Here are the results (click the picture to watch): 
+Here are the results (click to watch): 
 
 Eastern Conference - 
 [![Watch the video](https://www.youtube.com/shorts/QX3W60ugI68)](https://www.youtube.com/shorts/QX3W60ugI68)
