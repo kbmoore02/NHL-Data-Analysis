@@ -6,56 +6,87 @@ description: Gather data about the 32 NHL teams from the 2024-25 season
 image: /assets/images/hockey1-header.png
 ---
 
-# Cluster Analysis
+# Introduction
 
-I started by computing a few different metrics to see how many clusters I should look for.
+For this project, I am analyzing the 2024-25 Stanley Cup Playoffs picture over the course of the season. To do this, I gathered data from every day of the season and determined what the playoff layout would be if the tournament started that day.
 
-<p float="left">
-  <img src="https://raw.githubusercontent.com/kbmoore02/Stat486-Final-Blog/main/assets/images/cluster1.png" alt="" style="width:200px;">
-  <img src="https://raw.githubusercontent.com/kbmoore02/Stat486-Final-Blog/main/assets/images/cluster2.png" alt="" style="width:200px;">
-  <img src="https://raw.githubusercontent.com/kbmoore02/Stat486-Final-Blog/main/assets/images/cluster3.png" alt="" style="width:200px;">
-  <img src="https://raw.githubusercontent.com/kbmoore02/Stat486-Final-Blog/main/assets/images/cluster4.png" alt="" style="width:200px;">
-</p>
+This is the website I used to gather the data: https://www.hockey-reference.com/boxscores/
 
-Based on these, I decided that `n_clusters=4` is the best value. Using sklearn's `GaussianMixture()` algorithm, I found 4 clusters in the data. The following are representations of how the data fits into these clusters:
+# Code
 
-<img src="https://raw.githubusercontent.com/kbmoore02/Stat486-Final-Blog/main/assets/images/meta-chart.png" alt="" style="width:300px;">
-<img src="https://raw.githubusercontent.com/kbmoore02/Stat486-Final-Blog/main/assets/images/all_clusters1.png" alt="" style="width:1000px;">
+##### Load Libraries
+```python
+import requests
+import pandas as pd
+from bs4 import BeautifulSoup as bs
+import numpy as np
+from openpyxl import load_workbook
+from datetime import datetime, timedelta
+```
 
-Looking at this graph, the only really noticeable trends are in height and shoe size, which I presume is due to typical differences between men and women. We know from our random forest model that sex is the most important factor in predicting music taste, so it makes sense that it would be a defining characteristic in separating the clusters.
+##### Set-up Processes
+```python
+# Function to Export File
+def export_dataframe_to_excel_sheet(df, excel_path, sheet_name):
+    try:
+        book = load_workbook(excel_path)
+        with pd.ExcelWriter(excel_path, engine='openpyxl') as writer:
+            writer.book = book
+            df.to_excel(writer, sheet_name=sheet_name, index=False)
+    except FileNotFoundError:
+        print(f"Error: The file '{excel_path}' was not found.")
+    except Exception as e:
+        print(f"An error occurred: {e}")
 
-<img src="https://raw.githubusercontent.com/kbmoore02/Stat486-Final-Blog/main/assets/images/all_clusters2.png" alt="" style="width:1000px;">
-<img src="https://raw.githubusercontent.com/kbmoore02/Stat486-Final-Blog/main/assets/images/all_clusters3.png" alt="" style="width:800px;">
+# Get Dates
+start_date = datetime(2025, 4, 11)
+end_date = datetime(2025, 4, 13)
 
-Looking at these graphs, we see a couple of interesting patterns:
-- Most people in a relationship are in cluster 3
-- Most people who use dating apps are in cluster 1
-- The people who spend the most on food each week are in clusters 3 and 4
-- Cluster 3 has the highest median height, shoe size, and salary
-- Most people who played sports in high school are in cluster 2
-- Most people in the college of education are in cluster 1
-- Most people in the nursing program and in the college of humanities are in cluster 4
-- All people with an Apple phone are in cluster 2
-- Most men are in clusters 1 and 4 and most women are in clusters 2 and 3
-- Most people who want to live in the western US are in cluster 1
-- Most people who prefer YouTube are in cluster 3
-- Most people who prefer foreign films are in cluster 4
-- Most people who prefer Netflix are in cluster 1
+date_list = [start_date + timedelta(days=x) for x in range((end_date - start_date).days + 1)]
+formatted_dates = [f"year={date.year}&month={date.month}&day={date.day}" for date in date_list]
 
-# Dimension Reduction
+comma_separated_dates = ",".join(formatted_dates)
+dates = comma_separated_dates.split(",")
+```
 
-Now I'm going to perform some dimension reduction so that we can get a look at these clusters all together. I did both sklearn's `PCA()` and `TSNE()` with 2 components, so it would be easy to visualize. Here are the results:
+##### Scrape Webpage
 
-<p float="left">
-  <img src="https://raw.githubusercontent.com/kbmoore02/Stat486-Final-Blog/main/assets/images/pca.png" alt="" style="width:400px;">
-  <img src="https://raw.githubusercontent.com/kbmoore02/Stat486-Final-Blog/main/assets/images/tsne.png" alt="" style="width:400px;">
-</p>
+```python
+for i in range(0, len(dates)):
+    # Read Website
+    url = f"https://www.hockey-reference.com/boxscores/?{dates[i]}"
+    req = requests.get(url)
+    soup = bs(req.text, 'html.parser')
+    table = soup.find_all('table')[-1]
+    rows = table.find_all('tr')
 
-The clusters are much more defined for PCA than for tSNE. When looking at tSNE, the most defined clusters are 3 and 4 which makes sense, because those are the largest clusters. Looking at the PCA clusters, 1 and 4 overlap a lot, while 2 and 3 are a bit more separate. This pattern is reflective of how most men are in clusters 1 and 4, and most women are in clusters 2 and 3, as we saw above in our cluster analysis. Let's look at these clusters based on gender:
+    # Western Conference
+    html_table_w = str(soup.find_all('table')[-1])
+    df_w = pd.read_html(html_table_w)[0]
+    df_w = df_w.iloc[np.r_[1:9, 10:18],np.r_[0:6, 9:10]]
+    df_w = df_w.rename(columns={'Unnamed: 0': 'Team'})
+    df_w['Team'] = df_w['Team'].str.replace('*', '', regex=False)
+    df_w['Div'] = np.repeat(np.array(["Central", "Pacific"]), [8, 8], axis=0)
+    df_w['Conf'] = np.repeat('West', 16, axis=0)
 
-<p float="left">
-  <img src="https://raw.githubusercontent.com/kbmoore02/Stat486-Final-Blog/main/assets/images/pca_sex1.png" alt="" style="width:400px;">
-  <img src="https://raw.githubusercontent.com/kbmoore02/Stat486-Final-Blog/main/assets/images/tsne-sex1.png" alt="" style="width:400px;">
-</p>
+    # Eastern Conference
+    html_table_e = str(soup.find_all('table')[-2])
+    df_e = pd.read_html(html_table_e)[0]
+    df_e = df_e.iloc[np.r_[1:9, 10:18],np.r_[0:6, 9:10]]
+    df_e = df_e.rename(columns={'Unnamed: 0': 'Team'})
+    df_e['Team'] = df_e['Team'].str.replace('*', '', regex=False)
+    df_e['Div'] = np.repeat(np.array(["Atlantic", "Metropolitan"]), [8, 8], axis=0)
+    df_e['Conf'] = np.repeat('East', 16, axis=0)
 
-The separation between the two is very clear. So it seems, just as we discovered with our supervised learning, that gender is the most important factor in this dataset.  
+    # Combine Tables
+    df = pd.concat([df_w,df_e], ignore_index=True)
+
+    # Export
+    excel_file_path = {insert filepath here} 
+    new_sheet_name = dates[i].replace('year=','').replace('&month=','-').replace('&day=','-')
+    export_dataframe_to_excel_sheet(df, excel_file_path, new_sheet_name)
+```
+
+I now have all daily standings saved to an Excel spreadsheet, each on their own page. Here's a sample:
+
+<img src="https://raw.githubusercontent.com/kbmoore02/Stat486-Final-Blog/main/assets/images/hockey1-header.png" alt="" style="width:1000px;">
