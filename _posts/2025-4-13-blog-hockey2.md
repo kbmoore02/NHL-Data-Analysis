@@ -243,6 +243,10 @@ video.release()
 # Repeat for western conference
 ```
 
-Here are the results:
+Here are the results (click the picture to watch): 
 
-[![Watch the video](https://img.youtube.com/vi/pUa6c7DNmQY/0.jpg)](https://www.youtube.com/watch?v=pUa6c7DNmQY)
+Eastern Conference - 
+[![Watch the video](https://www.youtube.com/shorts/QX3W60ugI68)](https://www.youtube.com/shorts/QX3W60ugI68)
+
+Western Conference - 
+[![Watch the video](https://www.youtube.com/shorts/ZZcYDMrLTpA)](https://www.youtube.com/shorts/ZZcYDMrLTpA)
