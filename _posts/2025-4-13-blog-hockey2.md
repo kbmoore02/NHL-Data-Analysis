@@ -79,3 +79,4 @@ for i in range(0,len(dates):
 ```
 I now have the playoff standings for every day of the 2024-25 season. Here's an example:
 
+<img src="https://raw.githubusercontent.com/kbmoore02/Stat486-Final-Blog/main/assets/images/sample-layout-stacked.png" alt="" style="width:500px;">
