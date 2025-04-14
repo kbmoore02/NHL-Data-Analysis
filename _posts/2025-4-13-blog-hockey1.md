@@ -1,9 +1,9 @@
 ---
 layout: post
-title: "Unsupervised Learning Methods"
+title: "NHL Data Scraping"
 author: Kelsey Moore
-description: Apply unsupervised learning to student data
-image: /assets/images/unsup_header.png
+description: Gather data about the 32 NHL teams from the 2024-25 season
+image: /assets/images/hockey1-header.png
 ---
 
 # Cluster Analysis
