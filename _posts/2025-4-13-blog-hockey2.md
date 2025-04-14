@@ -77,3 +77,5 @@ for i in range(0,len(dates):
     new_sheet_name = dates[i]
     export_dataframe_to_excel_sheet(stand, excel_file_path, new_sheet_name)
 ```
+I now have the playoff standings for every day of the 2024-25 season. Here's an example:
+
