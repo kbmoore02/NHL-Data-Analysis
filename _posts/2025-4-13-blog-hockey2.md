@@ -73,7 +73,7 @@ for i in range(0,len(dates):
     stand = stand[['Position', 'Team', 'PTS','GP', 'RW', 'W', 'L', 'OL']]
     
     # Export to Excel
-    excel_file_path = 'C:\\Users\\kelse\\Pictures\\2008 (first camera)\\NHL Playoff Standings.xlsx' 
+    excel_file_path = {insert filepath here}
     new_sheet_name = dates[i]
     export_dataframe_to_excel_sheet(stand, excel_file_path, new_sheet_name)
 ```
