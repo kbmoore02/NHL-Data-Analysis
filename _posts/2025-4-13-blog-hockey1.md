@@ -89,4 +89,4 @@ for i in range(0, len(dates)):
 
 I now have all daily standings saved to an Excel spreadsheet, each on their own page. Here's a sample:
 
-<img src="https://raw.githubusercontent.com/kbmoore02/Stat486-Final-Blog/main/assets/images/hockey1-header.png" alt="" style="width:1000px;">
+<img src="https://raw.githubusercontent.com/kbmoore02/Stat486-Final-Blog/main/assets/images/sample-standings-stacked.png" alt="" style="width:500px;">
