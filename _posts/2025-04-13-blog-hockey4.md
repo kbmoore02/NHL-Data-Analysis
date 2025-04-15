@@ -167,4 +167,7 @@ for d in range(0, len(dates)):
 
 Here are the results: 
 
-<img src="https://raw.githubusercontent.com/kbmoore02/NHL-Data-Analysis/main/assets/images/sample-layout.png" alt="" style="width:500px;">
+<p float="left">
+  <img src="https://raw.githubusercontent.com/kbmoore02/NHL-Data-Analysis/main/assets/images/hockey1-header.jpg" style="width:400px" />
+  <img src="https://raw.githubusercontent.com/kbmoore02/NHL-Data-Analysis/main/assets/images/blog3b/hockey2-header.jpg" style="width:400px" /> 
+</p>
