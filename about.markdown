@@ -4,4 +4,4 @@ title: About
 permalink: /about/
 ---
 
-I am a Data Science and Statistics student, studing at Brigham Young University in Provo, Utah. I have experience coding in R, python, Linux, and SQL. This blog documents my work on my final project for Stat 486 (Machine Learning).
+I am a data analyst, having graduating from Brigham Young University with a Bachelor's degree in Statistics and Data Science. I have experience coding in R, python, Linux, SQL, and C++. This blog documents my exploration of data from the National Hockey League (NHL).
