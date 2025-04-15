@@ -196,5 +196,4 @@ for image in images:
     video.write(frame)
 video.release()
 ```
-Here is the result (click to watch):
-
+Here is the result (click to watch): [![Watch the video](https://www.youtube.com/watch?v=13hbnnlQAls)](https://www.youtube.com/watch?v=13hbnnlQAls)
