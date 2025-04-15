@@ -21,7 +21,7 @@
 title: HockeyDock # Make a title for your blog
 email: kelseymoore2020@gmail.com # Add your email 
 description: >- # this means to ignore newlines until "baseurl:"
- Follow along as I use statistics to explore National Hockey League (NHL) data
+ Follow along as I use statistics to explore National Hockey League (NHL) data.
 baseurl: "/Stat486-Final-Blog" # keep this the same or change it to the name of the repository 
 url: "https://kbmoore.github.io" #  change this to "https://<your-github-username>.github.io"
 image: /assets/images/hockey-header.png
