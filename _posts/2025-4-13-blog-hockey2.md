@@ -3,7 +3,7 @@ layout: post
 title: "NHL Playoff Standings"
 author: Kelsey Moore
 description: Configure Stanley Cup Playoff standings over the course of the 2024-25 NHL season
-image: /assets/images/hockey2-header.png
+image: /assets/images/hockey2-header-2.png
 ---
 
 # Introduction
