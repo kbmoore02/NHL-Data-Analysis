@@ -12,7 +12,7 @@ For this project, I am analyzing the 2024-25 Stanley Cup Playoffs picture over t
 
 This is the website I used to gather the data: <a href="https://www.hockey-reference.com/boxscores/">https://www.hockey-reference.com/boxscores/</a>
 
-# Code
+## Code
 
 ##### Load Libraries
 ```python
