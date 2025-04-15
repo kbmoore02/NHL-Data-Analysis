@@ -245,7 +245,7 @@ video.release()
 
 Here is an example of the standings:
 
-<img src="https://raw.githubusercontent.com/kbmoore02/NHL-Data-Analysis/main/assets/images/sample-layout-stacked.png" alt="" style="width:500px;">
+<img src="https://raw.githubusercontent.com/kbmoore02/NHL-Data-Analysis/main/assets/images/sample-layout.png" alt="" style="width:500px;">
 
 Here is the season progression (click to watch): 
 
