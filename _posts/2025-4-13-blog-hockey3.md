@@ -199,6 +199,6 @@ video.release()
 
 Here is an example of the bracket:
 
-<img src="https://raw.githubusercontent.com/kbmoore02/NHL-Data-Analysis/main/assets/images/sample-bracket.png" alt="" style="width:500px;">
+<img src="https://raw.githubusercontent.com/kbmoore02/NHL-Data-Analysis/main/assets/images/sample-bracket.png" alt="" style="width:750px;">
 
 Here is the season progression (click to watch): [![Watch the video](https://www.youtube.com/watch?v=13hbnnlQAls)](https://www.youtube.com/watch?v=13hbnnlQAls)
