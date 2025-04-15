@@ -79,7 +79,7 @@ for i in range(0,len(dates):
 ```
 I now have the playoff standings for every day of the 2024-25 season. Here's an example:
 
-<img src="https://raw.githubusercontent.com/kbmoore02/Stat486-Final-Blog/main/assets/images/sample-layout-stacked.png" alt="" style="width:500px;">
+<img src="https://raw.githubusercontent.com/kbmoore02/NHL-Data-Analysis/main/assets/images/sample-layout-stacked.png" alt="" style="width:500px;">
 
 # Season Progression
 
@@ -243,7 +243,11 @@ video.release()
 # Repeat for western conference
 ```
 
-Here are the results (click to watch): 
+Here is an example of the standings:
+
+<img src="https://raw.githubusercontent.com/kbmoore02/NHL-Data-Analysis/main/assets/images/sample-layout-stacked.png" alt="" style="width:500px;">
+
+Here is the season progression (click to watch): 
 
 Eastern Conference - 
 [![Watch the video](https://www.youtube.com/shorts/QX3W60ugI68)](https://www.youtube.com/shorts/QX3W60ugI68)
