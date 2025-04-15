@@ -196,4 +196,9 @@ for image in images:
     video.write(frame)
 video.release()
 ```
-Here is the result (click to watch): [![Watch the video](https://www.youtube.com/watch?v=13hbnnlQAls)](https://www.youtube.com/watch?v=13hbnnlQAls)
+
+Here is an example of the bracket:
+
+<img src="https://raw.githubusercontent.com/kbmoore02/NHL-Data-Analysis/main/assets/images/sample-layout-stacked.png" alt="" style="width:500px;">
+
+Here is the season progression (click to watch): [![Watch the video](https://www.youtube.com/watch?v=13hbnnlQAls)](https://www.youtube.com/watch?v=13hbnnlQAls)
