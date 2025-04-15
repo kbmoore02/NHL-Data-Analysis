@@ -247,7 +247,7 @@ Here is an example of the standings:
 
 <img src="https://raw.githubusercontent.com/kbmoore02/NHL-Data-Analysis/main/assets/images/sample-layout.png" alt="" style="width:500px;">
 
-Here is the season progression (click to watch): 
+Here is the season progression: 
 
 Eastern Conference - 
 [![Watch the video](https://www.youtube.com/shorts/QX3W60ugI68)](https://www.youtube.com/shorts/QX3W60ugI68)
