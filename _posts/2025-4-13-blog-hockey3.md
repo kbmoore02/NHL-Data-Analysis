@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "NHL Playoff Bracket"
+title: "Stanley Cup Playoff Bracket"
 author: Kelsey Moore
 description: Visualize the bracket for the 2024-25 Stanley Cup playoffs
 image: /assets/images/hockey3-header.png
