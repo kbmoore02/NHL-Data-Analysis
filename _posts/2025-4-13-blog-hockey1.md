@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "NHL Data Scraping"
+title: "Data Scraping"
 author: Kelsey Moore
 description: Gather data about the 32 NHL teams from the 2024-25 season
 image: /assets/images/hockey1-header.png
