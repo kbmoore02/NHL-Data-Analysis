@@ -89,4 +89,4 @@ for i in range(0, len(dates)):
 
 I now have all daily data saved to an Excel spreadsheet, each on their own page. Here's an example:
 
-<img src="https://raw.githubusercontent.com/kbmoore02/Stat486-Final-Blog/main/assets/images/sample-standings-stacked.png" alt="" style="width:500px;">
+<img src="https://raw.githubusercontent.com/kbmoore02/NHL-Data-Analysis/main/assets/images/sample-standings-stacked.png" alt="" style="width:500px;">
