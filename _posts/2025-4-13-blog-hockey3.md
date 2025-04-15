@@ -3,7 +3,7 @@ layout: post
 title: "NHL Playoff Bracket"
 author: Kelsey Moore
 description: Visualize the bracket for the Stanley Cup playoffs
-image: /assets/images/hockey3-header.jpg
+image: /assets/images/hockey3-header.png
 ---
 
 # Introduction
