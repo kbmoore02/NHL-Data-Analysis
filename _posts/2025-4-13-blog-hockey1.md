@@ -22,6 +22,8 @@ from bs4 import BeautifulSoup as bs
 import numpy as np
 from openpyxl import load_workbook
 from datetime import datetime, timedelta
+from pathlib import Path
+from io import StringIO
 ```
 
 ##### Set-up Processes
@@ -61,7 +63,7 @@ for i in range(0, len(dates)):
 
     # Western Conference
     html_table_w = str(soup.find_all('table')[-1])
-    df_w = pd.read_html(html_table_w)[0]
+    df_w = pd.read_html(StringIO(html_table_w))[0]
     df_w = df_w.iloc[np.r_[1:9, 10:18],np.r_[0:6, 9:10]]
     df_w = df_w.rename(columns={'Unnamed: 0': 'Team'})
     df_w['Team'] = df_w['Team'].str.replace('*', '', regex=False)
@@ -70,7 +72,7 @@ for i in range(0, len(dates)):
 
     # Eastern Conference
     html_table_e = str(soup.find_all('table')[-2])
-    df_e = pd.read_html(html_table_e)[0]
+    df_e = pd.read_html(StringIO(html_table_e))[0]
     df_e = df_e.iloc[np.r_[1:9, 10:18],np.r_[0:6, 9:10]]
     df_e = df_e.rename(columns={'Unnamed: 0': 'Team'})
     df_e['Team'] = df_e['Team'].str.replace('*', '', regex=False)
