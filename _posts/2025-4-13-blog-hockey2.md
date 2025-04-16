@@ -20,6 +20,7 @@ import pandas as pd
 import numpy as np
 from openpyxl import load_workbook
 from datetime import datetime, timedelta
+from pathlib import Path
 ```
 
 ##### Set-up Processes
@@ -27,9 +28,8 @@ from datetime import datetime, timedelta
 # Function to Export File
 def export_dataframe_to_excel_sheet(df, excel_path, sheet_name):
     try:
-        book = load_workbook(excel_path)
-        with pd.ExcelWriter(excel_path, engine='openpyxl') as writer:
-            writer.book = book
+        file_exists = Path(excel_path).exists()
+        with pd.ExcelWriter(excel_path, engine='openpyxl', mode='a' if file_exists else 'w') as writer:
             df.to_excel(writer, sheet_name=sheet_name, index=False)
     except FileNotFoundError:
         print(f"Error: The file '{excel_path}' was not found.")
@@ -38,7 +38,7 @@ def export_dataframe_to_excel_sheet(df, excel_path, sheet_name):
 
 # Get Dates
 start_date = datetime(2024, 10, 13)
-end_date = datetime(2025, 4, 13)
+end_date = datetime(2025, 4, 17)
 
 date_list = [start_date + timedelta(days=x) for x in range((end_date - start_date).days + 1)]
 formatted_dates = [f"year={date.year}&month={date.month}&day={date.day}" for date in date_list]
@@ -54,7 +54,7 @@ for i in range(0,len(dates)):
 ```python
 for i in range(0,len(dates):
     # Load Data
-    record = pd.read_excel({insert filepath here}, sheet_name=dates[i])
+    record = pd.read_excel({insert filepath here}, sheet_name=dates[i]) # NHL Records.xlsx
     west = record[record['Conf'].str.contains('West', na=False)]
     east = record[record['Conf'].str.contains('East', na=False)]
     
@@ -73,7 +73,7 @@ for i in range(0,len(dates):
     stand = stand[['Position', 'Team', 'PTS','GP', 'RW', 'W', 'L', 'OL']]
     
     # Export to Excel
-    excel_file_path = {insert filepath here}
+    excel_file_path = f'{insert filepath here}\\NHL Playoff Standings.xlsx'
     new_sheet_name = dates[i]
     export_dataframe_to_excel_sheet(stand, excel_file_path, new_sheet_name)
 ```
@@ -111,7 +111,7 @@ elim = pd.read_excel({insert filepath here}, sheet_name='Eliminated')
 ##### Create Tables
 ```python
 for j in range(0, len(dates)):
-    stand = pd.read_excel({insert filepath here}, sheet_name=dates[j])
+    stand = pd.read_excel({insert filepath here}, sheet_name=dates[j]) # NHL Playoff Standings.xlsx
     stand = stand.iloc[:,0:5]
     
     # Playoff Standings
@@ -202,7 +202,7 @@ for j in range(0, len(dates)):
     
     # Save Table
     styled_df = df.style.apply(bold_rows, axis=1).hide(axis='index').set_properties(subset=[' '], **{'text-align': 'left'})
-    excel_file_path = {insert filepath here} 
+    excel_file_path = f'{insert filepath here}\\NHL Playoff Layouts.xlsx'
     new_sheet_name = dates[j]
     export_dataframe_to_excel_sheet(styled_df, excel_file_path, new_sheet_name)
 ```
@@ -211,7 +211,7 @@ for j in range(0, len(dates)):
 ```python
 # Settings
 image_folder = {insert pathfile here}
-output_video = '{insert pathfile here}\\Standings Timelapse East.mp4'
+output_video = {insert pathfile here} # Standings Timelapse East.mp4
 fps = 2
 
 # Get image files
