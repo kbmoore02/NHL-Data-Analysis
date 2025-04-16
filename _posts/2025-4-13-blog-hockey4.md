@@ -168,6 +168,6 @@ for d in range(0, len(dates)):
 Here are the results: 
 
 <p float="left">
-  <img src="https://raw.githubusercontent.com/kbmoore02/NHL-Data-Analysis/main/assets/images/clinched.png" style="width:400px" />
-  <img src="https://raw.githubusercontent.com/kbmoore02/NHL-Data-Analysis/main/assets/images/eliminated.png" style="width:400px" /> 
+  <img src="https://raw.githubusercontent.com/kbmoore02/NHL-Data-Analysis/main/assets/images/clinched.png" style="width:400px; vertical-align: top;" />
+  <img src="https://raw.githubusercontent.com/kbmoore02/NHL-Data-Analysis/main/assets/images/eliminated.png" style="width:400px; vertical-align: top;" /> 
 </p>
