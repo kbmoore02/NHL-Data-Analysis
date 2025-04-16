@@ -31,7 +31,7 @@ from natsort import natsorted
 ```python
 # Get Dates
 start_date = datetime(2024, 10, 13)
-end_date = datetime(2025, 4, 13)
+end_date = datetime(2025, 4, 17)
 date_list = [start_date + timedelta(days=x) for x in range((end_date - start_date).days + 1)]
 
 formatted_dates = [f"{date.year}-{date.month}-{date.day}" for date in date_list]
@@ -69,7 +69,7 @@ def draw_bracket(ax, matchups, x_start):
 ```python
 for d in range(0,len(dates)):
     # Load Data
-    bracket = pd.read_excel({insert filepath here}, sheet_name=dates[d])
+    bracket = pd.read_excel({insert filepath here}, sheet_name=dates[d]) # NHL Playoff Layouts.xlsx
     bracket = bracket.iloc[np.r_[1:4,5:8,9:11,20:23,24:27,28:30],:].fillna('').reset_index(drop=True)
     for i in range(0,len(bracket)):
         bracket.iloc[i,0] = bracket.iloc[i,0].replace('1- ','').replace('2- ','').replace('3- ','')
