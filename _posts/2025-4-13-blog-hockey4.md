@@ -3,7 +3,7 @@ layout: post
 title: "Playoff Contention"
 author: Kelsey Moore
 description: Mathematically determine Stanley Cup playoff clinching or elimination
-image: /assets/images/hockey4-header.png
+image: /assets/images/hockey4-header.jpg
 ---
 
 # Introduction
@@ -168,6 +168,6 @@ for d in range(0, len(dates)):
 Here are the results: 
 
 <p float="left">
-  <img src="https://raw.githubusercontent.com/kbmoore02/NHL-Data-Analysis/main/assets/images/hockey1-header.jpg" style="width:400px" />
-  <img src="https://raw.githubusercontent.com/kbmoore02/NHL-Data-Analysis/main/assets/images/blog3b/hockey2-header.jpg" style="width:400px" /> 
+  <img src="https://raw.githubusercontent.com/kbmoore02/NHL-Data-Analysis/main/assets/images/clinched.png" style="width:400px" />
+  <img src="https://raw.githubusercontent.com/kbmoore02/NHL-Data-Analysis/main/assets/images/eliminated.png" style="width:400px" /> 
 </p>
