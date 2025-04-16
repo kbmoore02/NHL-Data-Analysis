@@ -83,7 +83,7 @@ for i in range(0, len(dates)):
     df = pd.concat([df_w,df_e], ignore_index=True)
 
     # Export
-    excel_file_path = {insert filepath here} 
+    excel_file_path = f'{insert filepath here}\\NHL Records.xlsx'
     new_sheet_name = dates[i].replace('year=','').replace('&month=','-').replace('&day=','-')
     export_dataframe_to_excel_sheet(df, excel_file_path, new_sheet_name)
 ```
