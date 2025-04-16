@@ -26,7 +26,7 @@ from openpyxl import load_workbook
 ```python
 # Get Dates
 start_date = datetime(2025, 3, 1)
-end_date = datetime(2025, 4, 13)
+end_date = datetime(2025, 4, 17)
 
 date_list = [start_date + timedelta(days=x) for x in range((end_date - start_date).days + 1)]
 formatted_dates = [f"{date.year}-{date.month}-{date.day}" for date in date_list]
@@ -43,7 +43,7 @@ clinch = pd.DataFrame(columns=['Team', 'Date', 'Conf'])
 ```python
 for d in range(0,len(dates)):
     # Load Data
-    bracket = pd.read_excel('C:\\Users\\kelse\\Pictures\\2008 (first camera)\\NHL Records.xlsx', sheet_name=dates[d])
+    bracket = pd.read_excel({insert filepath here}, sheet_name=dates[d]) # NHL Records.xlsx
     bracket_west = bracket.iloc[np.r_[3:8,11:16],].sort_values(by=['PTS','GP','RW','W'], ascending=[False, True, False, False]).reset_index(drop=True)
     bracket_east = bracket.iloc[np.r_[19:24,27:32],].sort_values(by=['PTS','GP','RW','W'], ascending=[False, True, False, False]).reset_index(drop=True)
     for team in bracket_west['Team'].values:
@@ -101,7 +101,7 @@ for d in range(0,len(dates)):
 ```python
 for d in range(0, len(dates)):
     # Load Data
-    bracket = pd.read_excel('C:\\Users\\kelse\\Pictures\\2008 (first camera)\\NHL Records.xlsx', sheet_name=dates[d])
+    bracket = pd.read_excel({insert filepath here}, sheet_name=dates[d]) # NHL Records.xlsx
     bracket_west = bracket.iloc[np.r_[0:16],].sort_values(by=['PTS','GP','RW','W'], ascending=[False, True, False, False]).reset_index(drop=True)
     bracket_east = bracket.iloc[np.r_[16:32],].sort_values(by=['PTS','GP','RW','W'], ascending=[False, True, False, False]).reset_index(drop=True)
     clinch_teams = clinch['Team'].values
