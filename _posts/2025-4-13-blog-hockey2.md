@@ -247,7 +247,7 @@ Here is an example of the standings:
 Here is the season progression: 
 
 Eastern Conference - 
-[![Watch the video](https://www.youtube.com/shorts/QX3W60ugI68)](https://www.youtube.com/shorts/QX3W60ugI68)
+[![Watch the video](https://www.youtube.com/shorts/wxyjAi_Jki4)](https://www.youtube.com/shorts/wxyjAi_Jki4)
 
 Western Conference - 
-[![Watch the video](https://www.youtube.com/shorts/ZZcYDMrLTpA)](https://www.youtube.com/shorts/ZZcYDMrLTpA)
+[![Watch the video](https://www.youtube.com/shorts/CTCA5oMbD9g)](https://www.youtube.com/shorts/CTCA5oMbD9g)
