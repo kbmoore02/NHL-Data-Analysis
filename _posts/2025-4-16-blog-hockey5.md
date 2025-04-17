@@ -190,7 +190,13 @@ for t in range(0,len(playoff_teams)):
   <img src="https://raw.githubusercontent.com/kbmoore02/NHL-Data-Analysis/main/assets/images/avg_goals.png" style="width:350px; vertical-align: top;" /> 
 </p>
 
+All teams that made the playoffs had at least one game with at least 6 goals. The maximum goals scored in an game was 8.
+
+These teams average between 2.75 and 3.75 goals per game. The Tampa Bay Lightning has the highest average with 3.62 goals per game, and the Minnesota Wild has the lowest average with 2.78 goals per game.
+
 <p float="left">
   <img src="https://raw.githubusercontent.com/kbmoore02/NHL-Data-Analysis/main/assets/images/avg_goals_home.png" style="width:350px; vertical-align: top;" />
   <img src="https://raw.githubusercontent.com/kbmoore02/NHL-Data-Analysis/main/assets/images/avg_goals_away.png" style="width:350px; vertical-align: top;" /> 
 </p>
+
+Most teams average more goals scored at home, with the exception of the Toronto Maple Leafs, the New Jersey Devils, and the Minnesota Wild. The Carolina Hurricanes have the biggest differential, average 1.13 more goals scored at home versus away.
