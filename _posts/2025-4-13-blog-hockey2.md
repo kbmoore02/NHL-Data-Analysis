@@ -41,13 +41,10 @@ start_date = datetime(2024, 10, 13)
 end_date = datetime(2025, 4, 17)
 
 date_list = [start_date + timedelta(days=x) for x in range((end_date - start_date).days + 1)]
-formatted_dates = [f"year={date.year}&month={date.month}&day={date.day}" for date in date_list]
+formatted_dates = [f"{date.year}-{date.month}-{date.day}" for date in date_list]
 
 comma_separated_dates = ",".join(formatted_dates)
 dates = comma_separated_dates.split(",")
-
-for i in range(0,len(dates)):
-    dates[i] = dates[i].replace('year=','').replace('&month=','-').replace('&day=','-')
 ```
 
 ##### Create Standings Tables
