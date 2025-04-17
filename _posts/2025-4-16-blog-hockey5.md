@@ -23,7 +23,7 @@ from openpyxl import load_workbook
 import matplotlib.pyplot as plt
 ```
 
-##### Import Data
+##### Import/Create Data
 ```python
 schedule = pd.read_excel(f'{insert filepath here}NHL Schedule.xlsx')
 
@@ -107,8 +107,8 @@ plt.show()
 ```
 
 <p float="left">
-  <img src="https://raw.githubusercontent.com/kbmoore02/NHL-Data-Analysis/main/assets/images/clinched.png" style="width:400px; vertical-align: top;" />
-  <img src="https://raw.githubusercontent.com/kbmoore02/NHL-Data-Analysis/main/assets/images/eliminated.png" style="width:400px; vertical-align: top;" /> 
+  <img src="https://raw.githubusercontent.com/kbmoore02/NHL-Data-Analysis/main/assets/images/pts_east.png" style="width:500px; vertical-align: top;" />
+  <img src="https://raw.githubusercontent.com/kbmoore02/NHL-Data-Analysis/main/assets/images/pts_west.png" style="width:500px; vertical-align: top;" /> 
 </p>
 
 ## Win Streak
@@ -128,13 +128,38 @@ for team in playoff_teams:
     max_streak.append(max(team['STRK']))
 ```
 
-<img src="https://raw.githubusercontent.com/kbmoore02/NHL-Data-Analysis/main/assets/images/clinched.png" style="width:400px; vertical-align: top;" />
+<img src="https://raw.githubusercontent.com/kbmoore02/NHL-Data-Analysis/main/assets/images/max_win_streak.png" style="width:700px; vertical-align: top;" />
 
 As we can see, the St. Louis Blues had the longest win streak out of any team. Let's look at their games throughout the season.
 
-<img src="https://raw.githubusercontent.com/kbmoore02/NHL-Data-Analysis/main/assets/images/clinched.png" style="width:400px; vertical-align: top;" />
+<img src="https://raw.githubusercontent.com/kbmoore02/NHL-Data-Analysis/main/assets/images/blues_streak.png" style="width:700px; vertical-align: top;" />
 
 Interestingly, the Blues didn't have an outstanding performance in the first 2/3 of the season. We can see this by the fact that they couldn't win more than 2 games in a row until March. Also, it we look back at the graph of points of the course of the season, we can see that the Blues were trailing behind, but have caught up since they went on this heater.
+
+The Winnipeg Jets had the second highest win streak. Let's look at their games.
+
+<img src="https://raw.githubusercontent.com/kbmoore02/NHL-Data-Analysis/main/assets/images/jets_streak.png" style="width:700px; vertical-align: top;" />
+
+They did a little better than the jets over the season, coming out hot at the beginning and doing well pretty consistently. Doing so well in the beginning and then having a good midseason as well helped propel them forward as the overall points leader this season.
+
+## Lose Streak
+```python
+for team in playoff_teams:
+    team['LOS-STRK'] = 0
+    if team.iloc[0,7] != 'W':
+        team.iloc[0,10] = 1
+    for i in range(1,len(team)):
+        if team.iloc[i,7] != 'W':
+            team.iloc[i,10] = 1 + team.iloc[i-1,10]
+```
+
+```python
+max_loss_streak = []
+for team in playoff_teams:
+    max_loss_streak.append(max(team['LOS-STRK']))
+```
+
+<img src="https://raw.githubusercontent.com/kbmoore02/NHL-Data-Analysis/main/assets/images/loss_streak.png" style="width:700px; vertical-align: top;" />
 
 ## Goals Scored
 ```python
@@ -160,10 +185,12 @@ for t in range(0,len(playoff_teams)):
     avg_away_goals.append(np.mean(away))
 ```
 
-
-Here are the results: 
+<p float="left">
+  <img src="https://raw.githubusercontent.com/kbmoore02/NHL-Data-Analysis/main/assets/images/max_goals.png" style="width:500px; vertical-align: top;" />
+  <img src="https://raw.githubusercontent.com/kbmoore02/NHL-Data-Analysis/main/assets/images/avg_goals.png" style="width:500px; vertical-align: top;" /> 
+</p>
 
 <p float="left">
-  <img src="https://raw.githubusercontent.com/kbmoore02/NHL-Data-Analysis/main/assets/images/clinched.png" style="width:400px; vertical-align: top;" />
-  <img src="https://raw.githubusercontent.com/kbmoore02/NHL-Data-Analysis/main/assets/images/eliminated.png" style="width:400px; vertical-align: top;" /> 
+  <img src="https://raw.githubusercontent.com/kbmoore02/NHL-Data-Analysis/main/assets/images/avg_goals_home.png" style="width:500px; vertical-align: top;" />
+  <img src="https://raw.githubusercontent.com/kbmoore02/NHL-Data-Analysis/main/assets/images/avg_goals_away.png" style="width:500px; vertical-align: top;" /> 
 </p>
