@@ -107,8 +107,8 @@ plt.show()
 ```
 
 <p float="left">
-  <img src="https://raw.githubusercontent.com/kbmoore02/NHL-Data-Analysis/main/assets/images/pts_east.png" style="width:50%; vertical-align: top;" />
-  <img src="https://raw.githubusercontent.com/kbmoore02/NHL-Data-Analysis/main/assets/images/pts_west.png" style="width:50%; vertical-align: top;" /> 
+  <img src="https://raw.githubusercontent.com/kbmoore02/NHL-Data-Analysis/main/assets/images/pts_east.png" style="width:400px; vertical-align: top;" />
+  <img src="https://raw.githubusercontent.com/kbmoore02/NHL-Data-Analysis/main/assets/images/pts_west.png" style="width:400px; vertical-align: top;" /> 
 </p>
 
 ## Win Streak
@@ -186,11 +186,11 @@ for t in range(0,len(playoff_teams)):
 ```
 
 <p float="left">
-  <img src="https://raw.githubusercontent.com/kbmoore02/NHL-Data-Analysis/main/assets/images/max_goals.png" style="width:50%; vertical-align: top;" />
-  <img src="https://raw.githubusercontent.com/kbmoore02/NHL-Data-Analysis/main/assets/images/avg_goals.png" style="width:50%; vertical-align: top;" /> 
+  <img src="https://raw.githubusercontent.com/kbmoore02/NHL-Data-Analysis/main/assets/images/max_goals.png" style="width:400px; vertical-align: top;" />
+  <img src="https://raw.githubusercontent.com/kbmoore02/NHL-Data-Analysis/main/assets/images/avg_goals.png" style="width:400px; vertical-align: top;" /> 
 </p>
 
 <p float="left">
-  <img src="https://raw.githubusercontent.com/kbmoore02/NHL-Data-Analysis/main/assets/images/avg_goals_home.png" style="width:50%; vertical-align: top;" />
-  <img src="https://raw.githubusercontent.com/kbmoore02/NHL-Data-Analysis/main/assets/images/avg_goals_away.png" style="width:50%; vertical-align: top;" /> 
+  <img src="https://raw.githubusercontent.com/kbmoore02/NHL-Data-Analysis/main/assets/images/avg_goals_home.png" style="width:400px; vertical-align: top;" />
+  <img src="https://raw.githubusercontent.com/kbmoore02/NHL-Data-Analysis/main/assets/images/avg_goals_away.png" style="width:400px; vertical-align: top;" /> 
 </p>
