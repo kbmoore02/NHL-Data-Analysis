@@ -3,7 +3,7 @@ layout: post
 title: "Miscellaneous Analysis"
 author: Kelsey Moore
 description: A few random stats and charts from this season
-image: /assets/images/hockey4-header.jpg
+image: /assets/images/hockey6-header.jpg
 ---
 
 ```python
@@ -71,7 +71,6 @@ plt.tight_layout()
 plt.show()
 ```
 
-<p float="left">
-  <img src="https://raw.githubusercontent.com/kbmoore02/NHL-Data-Analysis/main/assets/images/clinched.png" style="width:400px; vertical-align: top;" />
-  <img src="https://raw.githubusercontent.com/kbmoore02/NHL-Data-Analysis/main/assets/images/eliminated.png" style="width:400px; vertical-align: top;" /> 
-</p>
+<img src="https://raw.githubusercontent.com/kbmoore02/NHL-Data-Analysis/main/assets/images/canes_pts_diff.png" style="width:1000px; vertical-align: top;" />
+<img src="https://raw.githubusercontent.com/kbmoore02/NHL-Data-Analysis/main/assets/images/jets_pts_diff.png" style="width:1000px; vertical-align: top;" />
+<img src="https://raw.githubusercontent.com/kbmoore02/NHL-Data-Analysis/main/assets/images/sharks_pts_diff.png" style="width:1000px; vertical-align: top;" />
