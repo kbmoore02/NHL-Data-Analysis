@@ -115,4 +115,4 @@ plt.title('Alex Ovechkin Attempted Shots 2007-2025')
 plt.show()
 ```
 
-<img src="https://raw.githubusercontent.com/kbmoore02/NHL-Data-Analysis/main/assets/images/ovi_goals.png" style="width:800px; vertical-align: top;" />
+<img src="https://raw.githubusercontent.com/kbmoore02/NHL-Data-Analysis/main/assets/images/ovi_goals.png" style="width:600px; vertical-align: top;" />
