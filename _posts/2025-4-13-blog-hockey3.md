@@ -12,36 +12,11 @@ Now that we can see what teams qualify for the Stanley Cup playoffs, I wanted to
 
 ## Code
 
-##### Load Libraries
-```python
-import pandas as pd
-import numpy as np
-from datetime import datetime, timedelta
-from openpyxl import load_workbook
-import matplotlib.pyplot as plt
-import matplotlib.image as mpimg
-from matplotlib.offsetbox import OffsetImage, AnnotationBbox
-from PIL import Image
-import cv2
-import os
-from natsort import natsorted
-```
-
 ##### Set-up Processes
 ```python
-# Get Dates
-start_date = datetime(2024, 10, 13)
-end_date = datetime(2025, 4, 17)
-date_list = [start_date + timedelta(days=x) for x in range((end_date - start_date).days + 1)]
-
-formatted_dates = [f"{date.year}-{date.month}-{date.day}" for date in date_list]
-comma_separated_dates = ",".join(formatted_dates)
-dates = comma_separated_dates.split(",")
-
 def add_logo(ax, path, x, y, zoom=None, width=None, height=None):
     img = Image.open(path)
-    
-    # Resize if width/height provided
+
     if width and height:
         img = img.resize((width, height), Image.ANTIALIAS)
     
@@ -164,37 +139,6 @@ for d in range(0,len(dates)):
     ax.set_title(f'NHL Playoff Bracket {dates[d]}\n', fontsize=16, loc='center')
     plt.savefig(f"{insert filepath here}{dates[d]}.png")
     plt.close()
-```
-
-##### Make Time Lapse
-```python
-# Settings
-image_folder = {insert filepath here}
-output_video =f'{image_folder}Bracket Timelapse.mp4'
-fps = 2
-
-# Get image files
-images = [img for img in os.listdir(image_folder) if img.endswith(('.jpg', '.png', '.jpeg'))]
-images = natsorted(images)
-if not images:
-    raise ValueError("No images found in the directory.")
-first_image_path = os.path.join(image_folder, images[0])
-frame = cv2.imread(first_image_path)
-height, width, _ = frame.shape
-
-# Initialize video writer
-fourcc = cv2.VideoWriter_fourcc(*'mp4v')  # Use 'XVID' for .avi
-video = cv2.VideoWriter(output_video, fourcc, fps, (width, height))
-
-# Write each image to video
-for image in images:
-    image_path = os.path.join(image_folder, image)
-    frame = cv2.imread(image_path)
-    if frame is None:
-        print(f"Warning: Skipping {image_path}")
-        continue
-    video.write(frame)
-video.release()
 ```
 
 Here is an example of the bracket:
