@@ -14,15 +14,6 @@ I used the data from [this](https://www.hockey-reference.com/leagues/NHL_2025_ga
 
 # Analysis
 
-##### Load Libraries
-```python
-import pandas as pd
-import numpy as np
-from datetime import datetime, timedelta
-from openpyxl import load_workbook
-import matplotlib.pyplot as plt
-```
-
 ##### Import/Create Data
 ```python
 schedule = pd.read_excel(f'{insert filepath here}NHL Schedule.xlsx')
@@ -120,9 +111,7 @@ for team in playoff_teams:
     for i in range(1,len(team)):
         if team.iloc[i,7] == 'W':
             team.iloc[i,9] = 1 + team.iloc[i-1,9]
-```
 
-```python
 max_streak = []
 for team in playoff_teams:
     max_streak.append(max(team['STRK']))
@@ -151,9 +140,7 @@ for team in playoff_teams:
     for i in range(1,len(team)):
         if team.iloc[i,7] != 'W':
             team.iloc[i,10] = 1 + team.iloc[i-1,10]
-```
 
-```python
 max_loss_streak = []
 for team in playoff_teams:
     max_loss_streak.append(max(team['LOS-STRK']))
@@ -199,4 +186,4 @@ These teams average between 2.75 and 3.75 goals per game. The Tampa Bay Lightnin
   <img src="https://raw.githubusercontent.com/kbmoore02/NHL-Data-Analysis/main/assets/images/avg_goals_away.png" style="width:350px; vertical-align: top;" /> 
 </p>
 
-Most teams average more goals scored at home, with the exception of the Toronto Maple Leafs, the New Jersey Devils, and the Minnesota Wild. The Carolina Hurricanes have the biggest differential, average 1.13 more goals scored at home versus away.
+Most teams average more goals scored at home, with the exception of the Toronto Maple Leafs, the New Jersey Devils, and the Minnesota Wild. The Carolina Hurricanes have the biggest differential, averaging 1.13 more goals scored at home versus away.
