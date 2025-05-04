@@ -2,29 +2,9 @@
 layout: post
 title: "Miscellaneous Analysis"
 author: Kelsey Moore
-description: A few random stats and charts from the 2024-25 season
+description: A few random stats and charts
 image: /assets/images/hockey6-header.jpg
 ---
-
-```python
-import requests
-import pandas as pd
-import numpy as np
-from openpyxl import load_workbook
-from datetime import datetime, timedelta
-import matplotlib.pyplot as plt
-```
-
-```python
-start_date = datetime(2024, 10, 4)
-end_date = datetime(2025, 4, 16)
-
-date_list = [start_date + timedelta(days=x) for x in range((end_date - start_date).days + 1)]
-formatted_dates = [date.strftime("%Y-%m-%d") for date in date_list]
-
-comma_separated_dates = ",".join(formatted_dates)
-dates = comma_separated_dates.split(",")
-```
 
 ```python
 schedule = pd.read_excel({insert pathfile here})
@@ -74,14 +54,6 @@ plt.show()
 <img src="https://raw.githubusercontent.com/kbmoore02/NHL-Data-Analysis/main/assets/images/canes_pts_diff.png" style="width:1000px; vertical-align: top;" />
 <img src="https://raw.githubusercontent.com/kbmoore02/NHL-Data-Analysis/main/assets/images/jets_pts_diff.png" style="width:1000px; vertical-align: top;" />
 <img src="https://raw.githubusercontent.com/kbmoore02/NHL-Data-Analysis/main/assets/images/sharks_pts_diff.png" style="width:1000px; vertical-align: top;" />
-
-```python
-import pandas as pd
-import numpy as np
-from openpyxl import load_workbook
-import matplotlib.pyplot as plt
-import matplotlib.patches as patches
-```
 
 ```python
 data = pd.read_csv({insert filepath here})
