@@ -14,28 +14,8 @@ Rankings are determined first by points (PTS), then by games played (GP), then r
 
 ## Code
 
-##### Import Libraries
-```python
-import pandas as pd
-import numpy as np
-from openpyxl import load_workbook
-from datetime import datetime, timedelta
-from pathlib import Path
-```
-
 ##### Set-up Processes
 ```python
-# Function to Export File
-def export_dataframe_to_excel_sheet(df, excel_path, sheet_name):
-    try:
-        file_exists = Path(excel_path).exists()
-        with pd.ExcelWriter(excel_path, engine='openpyxl', mode='a' if file_exists else 'w') as writer:
-            df.to_excel(writer, sheet_name=sheet_name, index=False)
-    except FileNotFoundError:
-        print(f"Error: The file '{excel_path}' was not found.")
-    except Exception as e:
-        print(f"An error occurred: {e}")
-
 # Get Dates
 start_date = datetime(2024, 10, 13)
 end_date = datetime(2025, 4, 17)
@@ -64,9 +44,7 @@ for i in range(0,len(dates):
                  'WWC 3','WWC 4','WWC 5','WWC 6','WWC 7','WWC 8','WWC 9','WWC 10',
                  'Atlantic 1','Atlantic 2','Atlantic 3','Metropolitan 1','Metropolitan 2','Metropolitan 3','E Wild Card 1','E Wild Card 2',
                  'EWC 3','EWC 4','EWC 5','EWC 6','EWC 7','EWC 8','EWC 9','EWC 10']
-    stand.index = row_names
-    
-    stand['Position'] = stand.index
+    stand['Position'] = row_names
     stand = stand[['Position', 'Team', 'PTS','GP', 'RW', 'W', 'L', 'OL']]
     
     # Export to Excel
@@ -83,17 +61,6 @@ I now have the playoff standings for every day of the 2024-25 season. Here's an 
 My next step was to combine these layouts to show the progression of the season. I generated a timelapse where you can see how each team's position changed.
 
 ## Code
-
-##### Import Libraries
-```python
-from selenium import webdriver
-from selenium.webdriver.chrome.options import Options
-from PIL import Image
-import time
-import os
-from natsort import natsorted
-import cv2
-```
 
 ##### Set-up Processes
 ```python
