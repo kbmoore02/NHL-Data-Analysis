@@ -14,18 +14,6 @@ This is the website I used to gather the data: <a href="https://www.hockey-refer
 
 ## Code
 
-##### Load Libraries
-```python
-import requests
-import pandas as pd
-from bs4 import BeautifulSoup as bs
-import numpy as np
-from openpyxl import load_workbook
-from datetime import datetime, timedelta
-from pathlib import Path
-from io import StringIO
-```
-
 ##### Set-up Processes
 ```python
 # Function to Export File
