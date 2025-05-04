@@ -10,30 +10,12 @@ image: /assets/images/hockey4-header.jpg
 
 In the previous posts, I gathered data about whether a team was eliminated from playoffs or had clinched a spot by simply searching online and compiling my findings in a table. Now, however, I wanted to dive deeper into the math behind how those statuses are determined.
 
-Just as before, rankings are determined first by points (PTS),t hen regulation wins (RW). When it is impossible for a team to catch up to the 2nd wild card spot, they are eliminated. When it is impossible for a team to be beaten out of the 2nd wild card spot, they have clinched.
+Just as before, rankings are determined first by points (PTS), then regulation wins (RW). When it is impossible for a team to catch up to the 2nd wild card spot, they are eliminated. When it is impossible for a team to be beaten out of the 2nd wild card spot, they have clinched.
 
 ## Code
 
-##### Import Libraries
-```python
-import pandas as pd
-import numpy as np
-from datetime import datetime, timedelta
-from openpyxl import load_workbook
-```
-
 ##### Set-up Processes
 ```python
-# Get Dates
-start_date = datetime(2025, 3, 1)
-end_date = datetime(2025, 4, 17)
-
-date_list = [start_date + timedelta(days=x) for x in range((end_date - start_date).days + 1)]
-formatted_dates = [f"{date.year}-{date.month}-{date.day}" for date in date_list]
-
-comma_separated_dates = ",".join(formatted_dates)
-dates = comma_separated_dates.split(",")
-
 # Initiate Tables
 elim = pd.DataFrame(columns=['Team', 'Date', 'Conf'])
 clinch = pd.DataFrame(columns=['Team', 'Date', 'Conf'])
