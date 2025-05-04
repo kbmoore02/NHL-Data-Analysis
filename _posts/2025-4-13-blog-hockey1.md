@@ -58,8 +58,6 @@ for i in range(0, len(dates)):
     url = f"https://www.hockey-reference.com/boxscores/?{dates[i]}"
     req = requests.get(url)
     soup = bs(req.text, 'html.parser')
-    table = soup.find_all('table')[-1]
-    rows = table.find_all('tr')
 
     # Western Conference
     html_table_w = str(soup.find_all('table')[-1])
