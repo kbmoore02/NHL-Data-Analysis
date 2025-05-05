@@ -168,16 +168,34 @@ goals = canes.loc[canes['event']=='GOAL',]
 ##### Create Plot
 
 ```python
-plt.figure(figsize=(7.5,6.375))
+fig, ax = plt.subplots(figsize=(7.5,6.375))
+
+radius = 28
+quarter_circle1 = patches.Arc((72, 14.5), 2 * radius, 2 * radius, angle=0, theta1=0, theta2=90, color='black', linewidth=2)
+quarter_circle2 = patches.Arc((72, -14.5), 2 * radius, 2 * radius, angle=0, theta1=270, theta2=0, color='black', linewidth=2)
+rect = patches.Rectangle((89, -3), 3.33, 6, linewidth=2, edgecolor='black', facecolor='black')
+plt.gca().add_patch(rect)
+ax.add_patch(quarter_circle1)
+ax.add_patch(quarter_circle2)
+
+ax.vlines(x=0, ymin=-42.5, ymax=42.5, color='black', linestyle='--', linewidth=2)
+ax.vlines(x=25, ymin=-42.5, ymax=42.5, color='blue', linestyle='--', linewidth=2)
+ax.vlines(x=89, ymin=-36.75, ymax=36.75, color='red', linestyle='--', linewidth=2)
+ax.vlines(x=100, ymin=-16, ymax=16, color='black', linewidth=2)
+ax.hlines(y=42.5, xmin=0, xmax=72, color='black', linewidth=2)
+ax.hlines(y=-42.5, xmin=0, xmax=72, color='black', linewidth=2)
+
 plt.scatter(miss['arenaAdjustedXCordABS'], miss['reflectedYCord'], color='orchid', label='Miss')
 plt.scatter(shots['arenaAdjustedXCordABS'], shots['reflectedYCord'], color='lightblue', label='Shot')
 plt.scatter(goals['arenaAdjustedXCordABS'], goals['reflectedYCord'], color='red', label='Goal')
-plt.axvline(x=0, color='black', linestyle='--', linewidth=2)
-plt.axvline(x=25, color='blue', linestyle='--', linewidth=2)
-plt.axvline(x=89, color='red', linestyle='--', linewidth=2)
-rect = patches.Rectangle((89, -3), 3.33, 6, linewidth=2, edgecolor='black', facecolor='black')
-plt.gca().add_patch(rect)
-plt.legend(loc='center left', bbox_to_anchor=(1, 0.5))
+
+ax.set_xlim(-1, 101)
+ax.set_ylim(-50, 50)
+ax.set_aspect('equal')
+plt.grid(True)
+ax.axis('off')
+plt.legend(loc='upper center', bbox_to_anchor=(0.5, -0.001), ncol=3)
+plt.tight_layout()
 plt.title('Carolina Hurricanes Attempted Shots 2024-25')
 plt.show()
 ```
@@ -198,18 +216,9 @@ p_goals = player.loc[player['event']=='GOAL',]
 ##### Create Plots
 
 ```python
-plt.figure(figsize=(7.5,6.375))
 plt.scatter(p_miss['arenaAdjustedXCordABS'], p_miss['reflectedYCord'], color='orchid', label='Miss')
 plt.scatter(p_shots['arenaAdjustedXCordABS'], p_shots['reflectedYCord'], color='lightblue', label='Shot')
 plt.scatter(p_goals['arenaAdjustedXCordABS'], p_goals['reflectedYCord'], color='red', label='Goal')
-plt.axvline(x=0, color='black', linestyle='--', linewidth=2)
-plt.axvline(x=25, color='blue', linestyle='--', linewidth=2)
-plt.axvline(x=89, color='red', linestyle='--', linewidth=2)
-rect = patches.Rectangle((89, -3), 3.33, 6, linewidth=2, edgecolor='black', facecolor='black')
-plt.gca().add_patch(rect)
-plt.legend(loc='center left', bbox_to_anchor=(1, 0.5))
-plt.title('Seth Jarvis Attempted Shots 2024-25')
-plt.show()
 ```
 
 <p float="left">
@@ -240,17 +249,8 @@ g_goals = goalie.loc[goalie['event']=='GOAL',].reset_index(drop=True)
 ##### Create Plots
 
 ```python
-plt.figure(figsize=(10,8.5))
 plt.scatter(g_shots['arenaAdjustedXCordABS'], g_shots['reflectedYCord'], color='lightblue', label='Shot')
 plt.scatter(g_goals['arenaAdjustedXCordABS'], g_goals['reflectedYCord'], color='red', label='Goal')
-plt.axvline(x=0, color='black', linestyle='--', linewidth=2)
-plt.axvline(x=25, color='blue', linestyle='--', linewidth=2)
-plt.axvline(x=89, color='red', linestyle='--', linewidth=2)
-rect = patches.Rectangle((89, -3), 3.33, 6, linewidth=2, edgecolor='black', facecolor='black')
-plt.gca().add_patch(rect)
-plt.legend(loc='center left', bbox_to_anchor=(1, 0.5))
-plt.title('Frederik Andersen Shots Against 2024-2025')
-plt.show()
 ```
 
 <p float="left">
@@ -309,18 +309,9 @@ pp_miss = pp.loc[pp['event']=='MISS',]
 ##### Create Plots
 
 ```python
-plt.figure(figsize=(7.5, 6.375))
 plt.scatter(shortie_miss['arenaAdjustedXCordABS'], shortie_miss['reflectedYCord'], color='orchid', label='Miss')
 plt.scatter(shortie_shots['arenaAdjustedXCordABS'], shortie_shots['reflectedYCord'], color='lightblue', label='Shot')
 plt.scatter(shortie_goals['arenaAdjustedXCordABS'], shortie_goals['reflectedYCord'], color='red', label='Goal')
-plt.axvline(x=0, color='black', linestyle='--', linewidth=2)
-plt.axvline(x=25, color='blue', linestyle='--', linewidth=2)
-plt.axvline(x=89, color='red', linestyle='--', linewidth=2)
-rect = patches.Rectangle((89, -3), 3.33, 6, linewidth=2, edgecolor='black', facecolor='black')
-plt.gca().add_patch(rect)
-plt.legend(loc='center left', bbox_to_anchor=(1, 0.5))
-plt.title('Carolina Hurricanes Short-Handed Attempted Goals 2024-25')
-plt.show()
 # repeat for Empty Net, Power Play, and Pulled Goalie
 ```
 
