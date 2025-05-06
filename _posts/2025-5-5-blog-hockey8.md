@@ -115,9 +115,11 @@ plt.show()
 # repeat for goals against and goal differential
 ```
 
-<img src="https://raw.githubusercontent.com/kbmoore02/NHL-Data-Analysis/main/assets/images/playoff_goals.png" alt="" style="width:500px;">
-<img src="https://raw.githubusercontent.com/kbmoore02/NHL-Data-Analysis/main/assets/images/playoff_goals_against.png" alt="" style="width:500px;">
-<img src="https://raw.githubusercontent.com/kbmoore02/NHL-Data-Analysis/main/assets/images/playoff_goal_diff.png" alt="" style="width:500px;">
+<p float="left">
+  <img src="https://raw.githubusercontent.com/kbmoore02/NHL-Data-Analysis/main/assets/images/playoff_goals.png" style="width:450px; vertical-align: top;" />
+  <img src="https://raw.githubusercontent.com/kbmoore02/NHL-Data-Analysis/main/assets/images/playoff_goals_against.png" style="width:450px; vertical-align: top;" /> 
+</p>
+<img src="https://raw.githubusercontent.com/kbmoore02/NHL-Data-Analysis/main/assets/images/playoff_goal_diff.png" alt="" style="width:450px;">
 
 ## Player Stats
 
@@ -125,11 +127,14 @@ plt.show()
 
 ```python
 pts_leaders = players.sort_values(by=['PTS','G','A'], ascending=[False, False, False]).head(10).reset_index(drop=True)
-top_goalies = goalies.sort_values(by='SV%', ascending=False).loc[goalies['DEC']!='0-0-0',].head(10).reset_index(drop=True)
 ```
 
-<img src="https://raw.githubusercontent.com/kbmoore02/NHL-Data-Analysis/main/assets/images/playoff_points.png" alt="" style="width:500px;">
-<img src="https://raw.githubusercontent.com/kbmoore02/NHL-Data-Analysis/main/assets/images/playoff_goalies.png" alt="" style="width:500px;">
+<img src="https://raw.githubusercontent.com/kbmoore02/NHL-Data-Analysis/main/assets/images/playoff_points.png" alt="" style="width:900px;">
+
+```python
+top_goalies = goalies.sort_values(by='SV%', ascending=False).loc[goalies['DEC']!='0-0-0',].head(10).reset_index(drop=True)
+```
+<img src="https://raw.githubusercontent.com/kbmoore02/NHL-Data-Analysis/main/assets/images/playoff_goalies.png" alt="" style="width:900px;">
 
 ## Team Stats
 
@@ -177,4 +182,4 @@ stats['A%'] = round((stats['AW']/stats['AG'])*100,2)
 stats['Result'] = ['Advanced' if stats.loc[i, 'HW'] + stats.loc[i, 'AW'] == 4 else 'Eliminated' for i in range(len(stats))]
 ```
 
-<img src="https://raw.githubusercontent.com/kbmoore02/NHL-Data-Analysis/main/assets/images/playoff_stats.png" alt="" style="width:500px;">
+<img src="https://raw.githubusercontent.com/kbmoore02/NHL-Data-Analysis/main/assets/images/playoff_stats.png" alt="" style="width:900px;">
