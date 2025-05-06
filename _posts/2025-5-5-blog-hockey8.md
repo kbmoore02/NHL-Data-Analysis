@@ -116,10 +116,10 @@ plt.show()
 ```
 
 <p float="left">
-  <img src="https://raw.githubusercontent.com/kbmoore02/NHL-Data-Analysis/main/assets/images/playoff_goals.png" style="width:450px; vertical-align: top;" />
-  <img src="https://raw.githubusercontent.com/kbmoore02/NHL-Data-Analysis/main/assets/images/playoff_goals_against.png" style="width:450px; vertical-align: top;" /> 
+  <img src="https://raw.githubusercontent.com/kbmoore02/NHL-Data-Analysis/main/assets/images/playoff_goals.png" style="width:400px; vertical-align: top;" />
+  <img src="https://raw.githubusercontent.com/kbmoore02/NHL-Data-Analysis/main/assets/images/playoff_goals_against.png" style="width:400px; vertical-align: top;" /> 
 </p>
-<img src="https://raw.githubusercontent.com/kbmoore02/NHL-Data-Analysis/main/assets/images/playoff_goal_diff.png" alt="" style="width:450px;">
+<img src="https://raw.githubusercontent.com/kbmoore02/NHL-Data-Analysis/main/assets/images/playoff_goal_diff.png" alt="" style="width:400px;">
 
 ## Player Stats
 
