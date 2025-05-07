@@ -106,6 +106,8 @@ plt.show()
 # repeat for assists
 ```
 
+Our top goal scorers are Seth Jarvis and Sebastian Aho. Our assists leaders are Sebastian Aho and Martin Necas, which is pretty impressive since Necas was traded to the Avalanche in late January.
+
 <img src="https://raw.githubusercontent.com/kbmoore02/NHL-Data-Analysis/main/assets/images/canes_player_goals.png" style="width:600px; vertical-align: top;" />
 
 <img src="https://raw.githubusercontent.com/kbmoore02/NHL-Data-Analysis/main/assets/images/canes_player_assists.png" style="width:600px; vertical-align: top;" /> 
@@ -141,6 +143,8 @@ plt.ylabel('Frequency')
 plt.show()
 # repeat for whole game
 ```
+
+We generally score more in the beginning and end of each period. Our best period is the 2nd, and we've also scored a lot at the very end of the game, probably because there is an empty net. 
 
 <img src="https://raw.githubusercontent.com/kbmoore02/NHL-Data-Analysis/main/assets/images/canes_per_goals.png" style="width:600px; vertical-align: top;" />
 
@@ -200,6 +204,8 @@ plt.title('Carolina Hurricanes Attempted Shots 2024-25')
 plt.show()
 ```
 
+We take shots all over the ice, but most of the goals were shot closer to the net. As an observer of the game, this makes sense - we have a tendency to take shots from the blue line directly into the goalies chest, but when we can get in close, we have more success beating the goalie. 
+
 <img src="https://raw.githubusercontent.com/kbmoore02/NHL-Data-Analysis/main/assets/images/canes_goals.png" style="width:600px; vertical-align: top;" /> 
 
 ## Shots Taken by Specific Players
@@ -220,6 +226,8 @@ plt.scatter(p_miss['arenaAdjustedXCordABS'], p_miss['reflectedYCord'], color='or
 plt.scatter(p_shots['arenaAdjustedXCordABS'], p_shots['reflectedYCord'], color='lightblue', label='Shot')
 plt.scatter(p_goals['arenaAdjustedXCordABS'], p_goals['reflectedYCord'], color='red', label='Goal')
 ```
+
+These graphs represent shots taken by the top 5 scorers on the team. Mostly, these reflect the patterns of the team's shots as a whole, but I can see that Jack Roslovic scores more on the right side of the net, and Andrei Svechnikov scores more on the left when he's farther away, but more from the right when he's in close. 
 
 <p float="left">
   <img src="https://raw.githubusercontent.com/kbmoore02/NHL-Data-Analysis/main/assets/images/jarvis_goals.png" style="width:400px; vertical-align: top;" />
@@ -257,6 +265,8 @@ plt.scatter(g_goals['arenaAdjustedXCordABS'], g_goals['reflectedYCord'], color='
   <img src="https://raw.githubusercontent.com/kbmoore02/NHL-Data-Analysis/main/assets/images/freddie_goals.png" style="width:400px; vertical-align: top;" />
   <img src="https://raw.githubusercontent.com/kbmoore02/NHL-Data-Analysis/main/assets/images/kooch_goals.png" style="width:400px; vertical-align: top;" /> 
 </p>
+
+As with goals scored by the Hurricanes, goals scored against the Hurricanes are mostly shot closer to the net.
 
 ## Shots Taken in Man Advantage Situations
 
@@ -416,3 +426,5 @@ tab2 = pd.merge(tab1, goalRankTable, on='Man Advantage')
 ```
 
 <img src="https://raw.githubusercontent.com/kbmoore02/NHL-Data-Analysis/main/assets/images/canes_shots_table.png" style="width:400px; vertical-align: top;" />
+
+One interesting trend in the table, which I've also observed from watching games throughout the season, is that we score on more of our short-handed shot attempts than our power-play shot attempts (percentage-wise). 
