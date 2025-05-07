@@ -115,6 +115,8 @@ plt.show()
 # repeat for goals against and goal differential
 ```
 
+In the first round, there were 3 teams which scored more goals than their opponents but still lost the series - the Colorado Avalanche, the St. Louis Blues, and the Minnesota Wild. This is because in the games they won, they won by alot, but when they lost, it was by a small margin.
+
 <p float="left">
   <img src="https://raw.githubusercontent.com/kbmoore02/NHL-Data-Analysis/main/assets/images/playoff_goals.png" style="width:400px; vertical-align: top;" />
   <img src="https://raw.githubusercontent.com/kbmoore02/NHL-Data-Analysis/main/assets/images/playoff_goals_against.png" style="width:400px; vertical-align: top;" /> 
@@ -129,11 +131,16 @@ plt.show()
 pts_leaders = players.sort_values(by=['PTS','G','A'], ascending=[False, False, False]).head(10).reset_index(drop=True)
 ```
 
+Mikko Rantanen is the points leader of the playoffs so far, with 5 goals and 7 assists for 12 points. Kyle Connor is tied in points, with 4 goals and 8 assists. 
+
 <img src="https://raw.githubusercontent.com/kbmoore02/NHL-Data-Analysis/main/assets/images/playoff_points.png" alt="" style="width:900px;">
 
 ```python
 top_goalies = goalies.sort_values(by='SV%', ascending=False).loc[goalies['DEC']!='0-0-0',].head(10).reset_index(drop=True)
 ```
+
+Frederik Andersen is the top goalie of the playoffs so far, with a save percentage of 93.6% and 1.5 Goals Against Average.
+
 <img src="https://raw.githubusercontent.com/kbmoore02/NHL-Data-Analysis/main/assets/images/playoff_goalies.png" alt="" style="width:900px;">
 
 ## Team Stats
@@ -181,5 +188,7 @@ stats['A%'] = round((stats['AW']/stats['AG'])*100,2)
 
 stats['Result'] = ['Advanced' if stats.loc[i, 'HW'] + stats.loc[i, 'AW'] == 4 else 'Eliminated' for i in range(len(stats))]
 ```
+
+The Carolina Hurricanes have the best penalty kill of the playoffs so far, with 100% success. The Los Angeles Kings have the best powerplay, scoring on 40% of their man-advantages. Several teams won all of their home games, and the Florida Panthers won all of their away games. 
 
 <img src="https://raw.githubusercontent.com/kbmoore02/NHL-Data-Analysis/main/assets/images/playoff_stats.png" alt="" style="width:900px;">
