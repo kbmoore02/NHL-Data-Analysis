@@ -51,6 +51,8 @@ plt.tight_layout()
 plt.show()
 ```
 
+These plots show the goal differentials for every game the Carolina Hurricanes, Winnipeg Jets, and San Jose Sharks played this season. The Jets had the best record in the league, and the Sharks had the worst, which we can see reflected in these graphs.
+
 <img src="https://raw.githubusercontent.com/kbmoore02/NHL-Data-Analysis/main/assets/images/canes_pts_diff.png" style="width:1000px; vertical-align: top;" />
 <img src="https://raw.githubusercontent.com/kbmoore02/NHL-Data-Analysis/main/assets/images/jets_pts_diff.png" style="width:1000px; vertical-align: top;" />
 <img src="https://raw.githubusercontent.com/kbmoore02/NHL-Data-Analysis/main/assets/images/sharks_pts_diff.png" style="width:1000px; vertical-align: top;" />
@@ -86,5 +88,7 @@ plt.legend(loc='center left', bbox_to_anchor=(1, 0.5))
 plt.title('Alex Ovechkin Attempted Shots 2007-2025')
 plt.show()
 ```
+
+This plot shows the location of every shot taken by Alex Ovechkin from 2007-2025.
 
 <img src="https://raw.githubusercontent.com/kbmoore02/NHL-Data-Analysis/main/assets/images/ovi_goals.png" style="width:600px; vertical-align: top;" />
