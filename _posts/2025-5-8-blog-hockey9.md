@@ -12,7 +12,7 @@ Let's look at some trends in past NHL Stanley Cup Playoffs, from 1968 to the pre
 
 I used [this](https://www.hockey-reference.com/playoffs/NHL_2025.html) website for my analysis.
 
-## Code
+## Individual Game Stats
 
 ##### Load/Create Data
 
@@ -136,3 +136,160 @@ stats = pd.DataFrame([
 ```
 
 <img src="https://raw.githubusercontent.com/kbmoore02/NHL-Data-Analysis/main/assets/images/playoff_stats_period.png" alt="" style="width:400px;">
+
+## Series Stats
+
+##### Load/Create Data
+
+```python
+cookie_string = "insert cookie string here"
+headers = {"User-Agent": "Mozilla/5.0","Cookie": cookie_string}
+base_url = "https://stathead.com/hockey/goal_finder.cgi"
+params = {"request": 1,"season_end": -1,"grouping": "p","order_by": "date_game","year_min": 1968,"is_playoffs": "Y",
+"season_start": 1,"year_max": 2025,"order_by_asc": 1,"match": "goallist","age_max": 100,"offset": 0}
+all_rows = []
+max_pages = 249
+
+for page in range(max_pages):
+    params["offset"] = page * 100
+    response = requests.get(base_url, headers=headers, params=params)
+    soup = BeautifulSoup(response.text, "html.parser")
+
+    table = soup.find("table", {"id": "stats"})
+    if not table:
+        print(f"No table found on page {page + 1}.")
+        continue
+
+    rows = table.find_all("tr")
+    for row in rows:
+        cells = [cell.get_text(strip=True) for cell in row.find_all(["th", "td"])]
+        if cells:
+            all_rows.append(cells)
+
+    time.sleep(1)
+
+with open("insert filepath here", "w", newline="", encoding="utf-8") as f:
+    writer = csv.writer(f)
+    for row in all_rows:
+        writer.writerow(row)
+```
+
+```python
+goals = pd.read_csv("insert filepath here")
+goals = goals.loc[goals['Date']!='Date',].reset_index(drop=True)
+goals.columns = ['Date', 'Tm', 'Loc', 'Opp', 'Result', 'Scorer', 'Assist1',
+       'Assist2', 'Goalie', 'Period', 'Time', 'Strength']
+goals['Loc'] = goals['Loc'].fillna('')
+goals['Year'] = [goals.loc[i,'Date'].split('/')[2] for i in range(0,len(goals))]
+
+for i in range(0,len(goals)):
+    team1 = goals.loc[i,'Tm']
+    team2 = goals.loc[i,'Opp']
+    teams = sorted([team1, team2])
+    ser = goals.loc[i,'Year'] + '-' + teams[0] + '-' + teams[1]
+    goals.loc[i,'Series'] = ser
+```
+
+```python
+ser = goals['Series'].unique()
+all_series = pd.DataFrame(columns=['Series','Team1Wins','Team2Wins'])
+all_series['Series'] = ser
+all_series['Team1Wins'] = all_series['Team1Wins'].fillna(0)
+all_series['Team2Wins'] = all_series['Team2Wins'].fillna(0)
+
+for i in range(0,len(all_series)):
+    dates = goals.loc[goals['Series']==ser[i],'Date'].unique().tolist()
+    for d in dates:
+        score = pd.DataFrame(
+            goals.loc[(goals['Series'] == ser[i]) & (goals['Date'] == d), 'Tm']
+            .value_counts()
+            .reset_index()
+            .rename(columns={'Tm': 'Team','count': 'Score'})
+        ).sort_values('Team').reset_index(drop=True)
+
+        team1 = all_series.loc[i,'Series'].split('-')[1]
+        team2 = all_series.loc[i,'Series'].split('-')[2]
+        team1_score = score.loc[score['Team']==team1,'Score'].reset_index(drop=True)
+        team1_score = int(team1_score.values[0]) if not team1_score.empty else 0
+        team2_score = score.loc[score['Team']==team2,'Score'].reset_index(drop=True)
+        team2_score = int(team2_score.values[0]) if not team2_score.empty else 0
+
+        if team1_score > team2_score:
+            all_series.loc[i,'Team1Wins'] += 1
+        else:
+            all_series.loc[i,'Team2Wins'] += 1
+
+for i in range(0,len(all_series)):
+    if all_series.loc[i,'Team1Wins'] == 4:
+        team = all_series.loc[i,'Series'].split('-')[1]
+        all_series.loc[i,'Winner'] = team
+    elif all_series.loc[i,'Team2Wins'] == 4:
+        team = all_series.loc[i,'Series'].split('-')[2]
+        all_series.loc[i,'Winner'] = team
+```
+
+```python
+all_games = pd.DataFrame(columns=['Series','Date','Team1','Team2','Winner'])
+for s in range(0,len(ser)):
+    games = goals.loc[goals['Series']==ser[s],]
+    dat = games['Date'].unique().tolist()
+    for d in range(0,len(dat)):
+        new_row = pd.DataFrame({'Series': [ser[s]], 'Date': [dat[d]]})
+        all_games = pd.concat([all_games, new_row], ignore_index=True)
+
+for s in range(0,len(ser)):
+    games = goals.loc[goals['Series']==ser[s],]
+    dates = games['Date'].unique()
+    team1 = ser[s].split('-')[1]
+    team2 = ser[s].split('-')[2]
+    for d in range(0,len(dates)):
+        g = games.loc[games['Date']==dates[d],]
+        score_dict = g['Tm'].value_counts().to_dict()
+        t1 = score_dict.get(team1, 0)
+        t2 = score_dict.get(team2, 0)
+        all_games.loc[(all_games['Series']==ser[s]) & (all_games['Date']==dates[d]), 'Team1'] = t1
+        all_games.loc[(all_games['Series']==ser[s]) & (all_games['Date']==dates[d]), 'Team2'] = t2
+
+for i in range(0,len(all_games)):
+    if all_games.loc[i,'Team1'] > all_games.loc[i,'Team2']:
+        team = all_games.loc[i,'Series'].split('-')[1]
+        all_games.loc[i,'Winner'] = team
+    else:
+        team = all_games.loc[i,'Series'].split('-')[2]
+        all_games.loc[i,'Winner'] = team
+```
+
+```python
+all_games['Team1Wins'] = 0
+all_games['Team2Wins'] = 0
+all_games.loc[0,'Team1Wins'] = 1
+
+for i in range(1,len(all_games)):
+    winner = all_games.loc[i,'Winner']
+    team1 = all_games.loc[i,'Series'].split('-')[1]
+    team2 = all_games.loc[i,'Series'].split('-')[2]
+    if all_games.loc[i,'Series'] == all_games.loc[i-1,'Series']:
+        if winner == team1:
+            all_games.loc[i,'Team1Wins'] = all_games.loc[i-1,'Team1Wins'] + 1
+            all_games.loc[i,'Team2Wins'] = all_games.loc[i-1,'Team2Wins']
+        else:
+            all_games.loc[i,'Team1Wins'] = all_games.loc[i-1,'Team1Wins']
+            all_games.loc[i,'Team2Wins'] = all_games.loc[i-1,'Team2Wins'] + 1
+    else:
+        # new series
+        if winner == team1:
+            all_games.loc[i,'Team1Wins'] = 1
+        else:
+            all_games.loc[i,'Team2Wins'] = 1
+```
+
+```python
+all_games['SeriesWinner'] = ''
+
+for s in range(len(ser)):
+    mask = all_games['Series'] == ser[s]
+    idx = all_games[mask].index[-1]  # Get the index of the last row in this series
+    winner = all_games.loc[mask, 'Winner'].value_counts().idxmax()
+    all_games.loc[idx, 'SeriesWinner'] = winner
+```
+
