@@ -135,4 +135,4 @@ stats = pd.DataFrame([
 ],columns=['Situation','Percentage Won'])
 ```
 
-<img src="https://raw.githubusercontent.com/kbmoore02/NHL-Data-Analysis/main/assets/images/playoff_stats_period.png" alt="" style="width:900px;">
+<img src="https://raw.githubusercontent.com/kbmoore02/NHL-Data-Analysis/main/assets/images/playoff_stats_period.png" alt="" style="width:400px;">
