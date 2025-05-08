@@ -139,7 +139,7 @@ stats = pd.DataFrame([
 
 ## Series Stats
 
-##### Load/Create Data
+##### Load/Create Data - Game Results
 
 ```python
 cookie_string = "insert cookie string here"
@@ -292,4 +292,79 @@ for s in range(len(ser)):
     winner = all_games.loc[mask, 'Winner'].value_counts().idxmax()
     all_games.loc[idx, 'SeriesWinner'] = winner
 ```
+
+##### Load/Create Data - Series Records
+
+```python
+series_winners = all_games[all_games['SeriesWinner'].notna()]['SeriesWinner'].reset_index(drop=True)
+ser = all_games['Series'].unique()
+```
+
+```python
+won_game1 = []
+for i in range(0,len(ser)):
+    first_game = all_games.loc[all_games['Series']==ser[i],].reset_index(drop=True).iloc[0]
+    winner = first_game['Winner']
+    won_game1.append(winner)
+```
+
+```python
+won_first2 = []
+for i in range(0,len(ser)):
+    series_games = all_games.loc[all_games['Series'] == ser[i]].reset_index(drop=True)
+    if len(series_games) < 2:
+        won_first2.append(None)
+        continue
+    second_game = series_games.iloc[1]
+    if ((second_game['Team1Wins']==2) | (second_game['Team2Wins']==2)):
+        winner = second_game['Winner']
+        won_first2.append(winner)
+    else:
+        won_first2.append(None)
+indexes = [i for i, item in enumerate(won_first2) if item is not None]
+won2 = [won_first2[i] for i in indexes]
+ser2 = [series_winners[i] for i in indexes]
+# repeat for won_first3
+```
+
+```python
+record_21 = []
+for i in range(0,len(ser)):
+    series_games = all_games.loc[all_games['Series'] == ser[i]].reset_index(drop=True)
+    if len(series_games) < 3:
+        record_21.append(None)
+        continue
+    third_game = series_games.iloc[2]
+
+    if third_game['Team1Wins']==2:
+        winner = ser[i].split('-')[1]
+        record_21.append(winner)
+    elif third_game['Team2Wins']==2:
+        winner = ser[i].split('-')[2]
+        record_21.append(winner)
+    else:
+        record_21.append(None)
+    
+indexes = [i for i, item in enumerate(record_21) if item is not None]
+won21 = [record_21[i] for i in indexes]
+ser21 = [series_winners[i] for i in indexes]
+# repeat for record_31 and record_32
+```
+
+##### Create Table
+
+```python
+stats = pd.DataFrame([
+    ['1-0',sum([won_game1[i]==series_winners[i] for i in range(len(won_game1))])/len(won_game1)],
+    ['2-0',sum([won2[i]==ser2[i] for i in range(0,len(won2))])/len(won2)],
+    ['3-0',sum([won3[i]==ser3[i] for i in range(0,len(won3))])/len(won3)],
+    ['2-1',sum([won21[i]==ser21[i] for i in range(len(won21))])/len(won21)],
+    ['3-1',sum([won31[i]==ser31[i] for i in range(len(won31))])/len(won31)],
+    ['3-2',sum([won32[i]==ser32[i] for i in range(len(won32))])/len(won32)]
+], columns = ['Rec.','Win %'])
+stats['Win %'] = stats['Win %']*100
+stats['Win %'] = stats['Win %'].round(2)
+```
+
+<img src="https://raw.githubusercontent.com/kbmoore02/NHL-Data-Analysis/main/assets/images/playoff_stats_games.png" alt="" style="width:400px;">
 
