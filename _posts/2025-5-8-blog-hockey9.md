@@ -366,5 +366,5 @@ stats['Win %'] = stats['Win %']*100
 stats['Win %'] = stats['Win %'].round(2)
 ```
 
-<img src="https://raw.githubusercontent.com/kbmoore02/NHL-Data-Analysis/main/assets/images/playoff_stats_games.png" alt="" style="width:400px;">
+<img src="https://raw.githubusercontent.com/kbmoore02/NHL-Data-Analysis/main/assets/images/playoff_stats_games.png" alt="" style="width:250px;">
 
