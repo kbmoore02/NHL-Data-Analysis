@@ -8,7 +8,7 @@ image: /assets/images/pic23.jpg
 
 <p float="left">
   <img src="https://raw.githubusercontent.com/kbmoore02/NHL-Data-Analysis/main/assets/images/pic25.jpg" style="width:400px; vertical-align: top;" />
-  <img src="https://raw.githubusercontent.com/kbmoore02/NHL-Data-Analysis/main/assets/images/pic21.jpg" style="width:400px; vertical-align: top;" /> 
+  <img src="https://raw.githubusercontent.com/kbmoore02/NHL-Data-Analysis/main/assets/images/pic13.jpg" style="width:400px; vertical-align: top;" /> 
 </p>
 <p float="left">
   <img src="https://raw.githubusercontent.com/kbmoore02/NHL-Data-Analysis/main/assets/images/pic11.jpg" style="width:400px; vertical-align: top;" />
@@ -16,7 +16,7 @@ image: /assets/images/pic23.jpg
 </p>
 <p float="left">
   <img src="https://raw.githubusercontent.com/kbmoore02/NHL-Data-Analysis/main/assets/images/pic26.jpg" style="width:400px; vertical-align: top;" />
-  <img src="https://raw.githubusercontent.com/kbmoore02/NHL-Data-Analysis/main/assets/images/pic13.jpg" style="width:400px; vertical-align: top;" /> 
+  <img src="https://raw.githubusercontent.com/kbmoore02/NHL-Data-Analysis/main/assets/images/pic21.jpg" style="width:400px; vertical-align: top;" /> 
 </p>
 <p float="left">
   <img src="https://raw.githubusercontent.com/kbmoore02/NHL-Data-Analysis/main/assets/images/pic16.jpg" style="width:400px; vertical-align: top;" />
