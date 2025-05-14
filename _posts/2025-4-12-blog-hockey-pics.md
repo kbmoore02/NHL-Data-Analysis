@@ -1,9 +1,9 @@
 ---
 layout: post
-title: "Miscellaneous Analysis"
+title: "Carolina Hurricanes Photography"
 author: Kelsey Moore
-description: A few random stats and charts
-image: /assets/images/hockey6-header.jpg
+description: Pictures I've taken at Hurricanes practices, warm-ups, and games
+image: /assets/images/pic23.jpg
 ---
 
 <p float="left">
