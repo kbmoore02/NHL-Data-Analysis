@@ -53,12 +53,18 @@ layout: default
   
   <a class="u-url" href="{{ page.url | relative_url }}" hidden></a>
 
-  <div class="post-navigation">
+  <div style="display: flex; justify-content: space-between; margin-top: 2em;">
     {% if page.previous %}
-      <a class="prev" href="{{ page.previous.url | relative_url }}">← {{ page.previous.title }}</a>
+      <a href="{{ page.previous.url | relative_url }}"
+         style="padding: 0.5em 1em; background-color: #007acc; color: white; text-decoration: none; border-radius: 5px;">
+         ← {{ page.previous.title }}
+      </a>
     {% endif %}
     {% if page.next %}
-      <a class="next" href="{{ page.next.url | relative_url }}">{{ page.next.title }} →</a>
+      <a href="{{ page.next.url | relative_url }}"
+         style="padding: 0.5em 1em; background-color: #007acc; color: white; text-decoration: none; border-radius: 5px;">
+         {{ page.next.title }} →
+      </a>
     {% endif %}
   </div>
 
