@@ -52,4 +52,14 @@ layout: default
   {%- endif -%}
   
   <a class="u-url" href="{{ page.url | relative_url }}" hidden></a>
+
+  <div class="post-navigation">
+    {% if page.previous %}
+      <a class="prev" href="{{ page.previous.url | relative_url }}">← {{ page.previous.title }}</a>
+    {% endif %}
+    {% if page.next %}
+      <a class="next" href="{{ page.next.url | relative_url }}">{{ page.next.title }} →</a>
+    {% endif %}
+  </div>
+
 </article>
